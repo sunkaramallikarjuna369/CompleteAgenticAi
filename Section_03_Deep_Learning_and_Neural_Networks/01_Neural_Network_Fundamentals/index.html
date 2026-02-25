@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neural Network Fundamentals - Agentic AI Tutorial</title>
+    <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+    <div class="hero" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+        <h1>Neural Network Fundamentals</h1>
+        <p class="subtitle">The building blocks of deep learning — neurons, layers, and learning algorithms</p>
+        <span class="badge">Section 03 &bull; Concept 01</span>
+    </div>
+    <div class="breadcrumb">
+        <a href="../../">Home</a> <span class="sep">/</span>
+        <a href="../">Section 03: Deep Learning</a> <span class="sep">/</span>
+        <span>Neural Network Fundamentals</span>
+    </div>
+    <div class="container">
+        <div class="card">
+            <h2>What is a Neural Network?</h2>
+            <p>A neural network is a computational model inspired by the human brain. It consists of layers of interconnected nodes (neurons) that process information and learn patterns from data through training.</p>
+            <div class="diagram">
+    INPUT LAYER          HIDDEN LAYERS          OUTPUT LAYER
+    
+    [x1] ───────┐
+                 ├───► [h1] ──┐
+    [x2] ───────┤             ├───► [h3] ──┐
+                 ├───► [h2] ──┤             ├───► [output]
+    [x3] ───────┘             └───► [h4] ──┘
+    
+    Features         Process &amp;            Prediction
+                     Transform
+            </div>
+            <div class="concept-box">
+                <h4>A Single Neuron</h4>
+                <p>Each neuron computes: <strong>output = activation(w1*x1 + w2*x2 + ... + wn*xn + bias)</strong></p>
+                <p>The weights (w) and bias are LEARNED during training. The activation function adds non-linearity, allowing the network to model complex patterns.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Activation Functions</h2>
+            <div class="grid">
+                <div class="grid-item" style="border-top: 4px solid #2196f3;">
+                    <h4>ReLU (Rectified Linear Unit)</h4>
+                    <p><strong>f(x) = max(0, x)</strong></p>
+                    <p>The default choice for hidden layers. Simple, fast, avoids vanishing gradients. Returns 0 for negatives, x for positives.</p>
+                </div>
+                <div class="grid-item" style="border-top: 4px solid #4caf50;">
+                    <h4>Sigmoid</h4>
+                    <p><strong>f(x) = 1 / (1 + e^-x)</strong></p>
+                    <p>Squashes output to (0, 1). Used for binary classification outputs. Prone to vanishing gradients in deep networks.</p>
+                </div>
+                <div class="grid-item" style="border-top: 4px solid #ff9800;">
+                    <h4>Softmax</h4>
+                    <p><strong>f(xi) = e^xi / sum(e^xj)</strong></p>
+                    <p>Converts logits to probabilities that sum to 1. Used for multi-class classification output layers.</p>
+                </div>
+                <div class="grid-item" style="border-top: 4px solid #9c27b0;">
+                    <h4>GELU</h4>
+                    <p><strong>f(x) = x * Phi(x)</strong></p>
+                    <p>Used in Transformers (GPT, BERT). Smooth approximation of ReLU. Powers modern LLMs and AI agents.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Backpropagation — How Networks Learn</h2>
+            <div class="diagram">
+FORWARD PASS (make prediction):
+Input → Layer 1 → Layer 2 → ... → Output → Compare with truth → Loss
+
+BACKWARD PASS (learn from error):
+Loss → Calculate gradients → Update weights → Reduce error
+    (chain rule)        (gradient descent)
+            </div>
+            <p>This cycle repeats thousands to millions of times. Each iteration makes the weights slightly better at producing correct outputs.</p>
+            <div class="warning">
+                <h4>Vanishing &amp; Exploding Gradients</h4>
+                <p><strong>Vanishing:</strong> Gradients become tiny in early layers — they stop learning. Solution: ReLU, skip connections (ResNet), proper initialization.</p>
+                <p><strong>Exploding:</strong> Gradients become enormous — training diverges. Solution: Gradient clipping, batch normalization, lower learning rate.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Regularization — Preventing Overfitting</h2>
+            <div class="grid">
+                <div class="grid-item">
+                    <h4>Dropout</h4>
+                    <p>Randomly "turn off" neurons during training (e.g., 20%). Forces the network to learn redundant representations. At inference, all neurons are active.</p>
+                </div>
+                <div class="grid-item">
+                    <h4>Batch Normalization</h4>
+                    <p>Normalize layer inputs to zero mean and unit variance. Stabilizes training, allows higher learning rates, acts as mild regularization.</p>
+                </div>
+                <div class="grid-item">
+                    <h4>Weight Decay (L2)</h4>
+                    <p>Add penalty for large weights to the loss function. Encourages simpler models that generalize better.</p>
+                </div>
+                <div class="grid-item">
+                    <h4>Early Stopping</h4>
+                    <p>Monitor validation loss. Stop training when it starts increasing (the model is starting to overfit to training data).</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Code Example: Neural Network with PyTorch</h2>
+            <div class="code-block">
+                <span class="lang-tag">Python</span>
+<span class="keyword">import</span> torch
+<span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn
+
+<span class="keyword">class</span> <span class="function">SimpleNetwork</span>(nn.Module):
+    <span class="keyword">def</span> <span class="function">__init__</span>(self, input_size, hidden_size, output_size):
+        <span class="keyword">super</span>().__init__()
+        self.layer1 = nn.Linear(input_size, hidden_size)
+        self.relu = nn.ReLU()
+        self.dropout = nn.Dropout(<span class="number">0.2</span>)
+        self.layer2 = nn.Linear(hidden_size, hidden_size)
+        self.output = nn.Linear(hidden_size, output_size)
+    
+    <span class="keyword">def</span> <span class="function">forward</span>(self, x):
+        x = self.relu(self.layer1(x))
+        x = self.dropout(x)
+        x = self.relu(self.layer2(x))
+        <span class="keyword">return</span> self.output(x)
+
+<span class="comment"># Create model</span>
+model = SimpleNetwork(input_size=<span class="number">784</span>, hidden_size=<span class="number">256</span>, output_size=<span class="number">10</span>)
+criterion = nn.CrossEntropyLoss()
+optimizer = torch.optim.Adam(model.parameters(), lr=<span class="number">0.001</span>)
+
+<span class="comment"># Training loop (one step)</span>
+<span class="comment"># output = model(input_data)       # Forward pass</span>
+<span class="comment"># loss = criterion(output, labels)  # Calculate loss</span>
+<span class="comment"># loss.backward()                   # Backward pass</span>
+<span class="comment"># optimizer.step()                  # Update weights</span>
+            </div>
+        </div>
+
+        <div class="nav-footer">
+            <a href="../" class="nav-btn secondary">&#8592; Back to Section 03</a>
+            <a href="../02_Convolutional_Neural_Networks/" class="nav-btn">Next: CNNs &#8594;</a>
+        </div>
+    </div>
+</body>
+</html>

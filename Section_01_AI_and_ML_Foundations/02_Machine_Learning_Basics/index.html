@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine Learning Basics - Agentic AI Tutorial</title>
+    <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+    <div class="hero" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+        <h1>Machine Learning Basics</h1>
+        <p class="subtitle">How machines learn from data — the core paradigm powering all modern AI</p>
+        <span class="badge">Section 01 &bull; Concept 02</span>
+    </div>
+    <div class="breadcrumb">
+        <a href="../../">Home</a> <span class="sep">/</span>
+        <a href="../">Section 01: AI &amp; ML Foundations</a> <span class="sep">/</span>
+        <span>Machine Learning Basics</span>
+    </div>
+    <div class="container">
+        <div class="card">
+            <h2>The ML Paradigm Shift</h2>
+            <p>Machine Learning fundamentally changes how we build software. Instead of writing explicit rules, we show the computer examples and let it discover the rules itself.</p>
+            <div class="grid">
+                <div class="grid-item" style="border-left: 4px solid #f44336;">
+                    <h4>Traditional Programming</h4>
+                    <div class="diagram">Data + Rules → Program → Output</div>
+                    <p>You write all the logic. For complex tasks like recognizing faces, writing rules is nearly impossible.</p>
+                </div>
+                <div class="grid-item" style="border-left: 4px solid #4caf50;">
+                    <h4>Machine Learning</h4>
+                    <div class="diagram">Data + Output → ML Algorithm → Rules (Model)</div>
+                    <p>You provide examples. The algorithm discovers the patterns. Works for complex, hard-to-define tasks.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Core Concepts</h2>
+            <div class="concept-box">
+                <h4>Features and Labels</h4>
+                <p><strong>Features (X)</strong> are input variables — the information the model uses to make predictions. <strong>Labels (y)</strong> are the target — what we want to predict.</p>
+                <p><em>Example:</em> Predicting house prices → Features: size, bedrooms, location | Label: price</p>
+            </div>
+
+            <h3>The Training Process</h3>
+            <div class="diagram">
+1. Initialize model with random parameters
+        ↓
+2. Feed training data through the model
+        ↓
+3. Calculate error (loss) between predictions and actual values
+        ↓
+4. Adjust parameters to reduce error (backpropagation + optimization)
+        ↓
+5. Repeat until error is minimized (convergence)
+            </div>
+
+            <h3>Loss Functions</h3>
+            <div class="table-wrapper">
+                <table>
+                    <thead><tr><th>Loss Function</th><th>Use Case</th><th>Formula Intuition</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>MSE</strong></td><td>Regression</td><td>Average of squared differences between predicted and actual values</td></tr>
+                        <tr><td><strong>Cross-Entropy</strong></td><td>Classification</td><td>Measures divergence between predicted probabilities and true labels</td></tr>
+                        <tr><td><strong>Hinge Loss</strong></td><td>SVM Classification</td><td>Penalizes predictions that are on the wrong side of the margin</td></tr>
+                        <tr><td><strong>Huber Loss</strong></td><td>Robust Regression</td><td>Combines MSE and MAE — less sensitive to outliers</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Optimization Algorithms</h3>
+            <div class="grid">
+                <div class="grid-item">
+                    <h4>Gradient Descent</h4>
+                    <p>The workhorse of ML. Follows the slope of the loss function downhill to find the minimum. Think of a ball rolling down a hill.</p>
+                </div>
+                <div class="grid-item">
+                    <h4>SGD (Stochastic)</h4>
+                    <p>Uses random subsets (mini-batches) instead of the full dataset. Much faster, adds helpful noise that avoids local minima.</p>
+                </div>
+                <div class="grid-item">
+                    <h4>Adam Optimizer</h4>
+                    <p>The most popular optimizer today. Adapts learning rates per parameter. Combines momentum + RMSprop. Works well in most cases.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>The Three Pillars of Machine Learning</h2>
+            <div class="grid">
+                <div class="grid-item" style="border-top: 4px solid #2196f3;">
+                    <h4>Supervised Learning</h4>
+                    <span class="tag tag-blue">Labeled Data</span>
+                    <p>Learn from input-output pairs. The algorithm sees the "right answers" during training.</p>
+                    <ul>
+                        <li><strong>Classification:</strong> Predict categories (spam/not spam)</li>
+                        <li><strong>Regression:</strong> Predict continuous values (house price)</li>
+                    </ul>
+                    <p><em>Examples:</em> Email filtering, medical diagnosis, price prediction</p>
+                </div>
+                <div class="grid-item" style="border-top: 4px solid #9c27b0;">
+                    <h4>Unsupervised Learning</h4>
+                    <span class="tag tag-purple">No Labels</span>
+                    <p>Discover hidden patterns in data without labeled examples. The algorithm finds structure on its own.</p>
+                    <ul>
+                        <li><strong>Clustering:</strong> Group similar data points</li>
+                        <li><strong>Dimensionality Reduction:</strong> Simplify data</li>
+                    </ul>
+                    <p><em>Examples:</em> Customer segmentation, anomaly detection, topic modeling</p>
+                </div>
+                <div class="grid-item" style="border-top: 4px solid #ff9800;">
+                    <h4>Reinforcement Learning</h4>
+                    <span class="tag tag-orange">Rewards</span>
+                    <p>Learn through trial and error. An agent takes actions in an environment and receives rewards or penalties.</p>
+                    <ul>
+                        <li><strong>Policy:</strong> Strategy for choosing actions</li>
+                        <li><strong>Value:</strong> Expected future reward</li>
+                    </ul>
+                    <p><em>Examples:</em> Game AI, robotics, <strong>AI Agents</strong></p>
+                </div>
+            </div>
+            <div class="takeaway">
+                <h4>For Agentic AI</h4>
+                <p>Reinforcement Learning is the <strong>direct ancestor</strong> of modern AI agents. The concept of an agent taking actions in an environment to maximize rewards is exactly how agentic AI systems operate — but now with LLMs as the brain!</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Bias-Variance Tradeoff</h2>
+            <p>The most fundamental concept in ML — every practitioner must understand this:</p>
+            <div class="grid">
+                <div class="grid-item" style="border-left: 4px solid #f44336;">
+                    <h4>High Bias (Underfitting)</h4>
+                    <p>Model is <strong>too simple</strong>. It can't capture the true patterns in the data. Poor performance on both training and test data.</p>
+                    <p><strong>Fix:</strong> More complex model, more features, less regularization</p>
+                </div>
+                <div class="grid-item" style="border-left: 4px solid #ff9800;">
+                    <h4>High Variance (Overfitting)</h4>
+                    <p>Model is <strong>too complex</strong>. It memorizes training data including noise. Great on training data, terrible on new data.</p>
+                    <p><strong>Fix:</strong> More data, regularization, dropout, simpler model</p>
+                </div>
+            </div>
+            <div class="diagram">
+Total Error = Bias² + Variance + Irreducible Error
+
+Underfitting ◄──────── Sweet Spot ────────► Overfitting
+High Bias              Balanced              High Variance
+Low Variance                                 Low Bias
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Model Evaluation</h2>
+            <h3>Train-Test Split</h3>
+            <div class="diagram">
+Full Dataset (100%)
+├── Training Set (70-80%) ── Used to train the model
+├── Validation Set (10-15%) ── Used to tune hyperparameters
+└── Test Set (10-20%) ── Used for final evaluation (never touched during training!)
+            </div>
+
+            <h3>Key Metrics</h3>
+            <div class="table-wrapper">
+                <table>
+                    <thead><tr><th>Metric</th><th>Formula Intuition</th><th>Best For</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Accuracy</strong></td><td>Correct / Total</td><td>Balanced datasets</td></tr>
+                        <tr><td><strong>Precision</strong></td><td>True Positives / All Predicted Positives</td><td>When false positives are costly</td></tr>
+                        <tr><td><strong>Recall</strong></td><td>True Positives / All Actual Positives</td><td>When false negatives are costly</td></tr>
+                        <tr><td><strong>F1 Score</strong></td><td>Harmonic mean of Precision &amp; Recall</td><td>Imbalanced datasets</td></tr>
+                        <tr><td><strong>AUC-ROC</strong></td><td>Area under True Positive vs False Positive curve</td><td>Binary classification ranking</td></tr>
+                        <tr><td><strong>MSE / RMSE</strong></td><td>Average squared error / its root</td><td>Regression tasks</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>The ML Pipeline</h2>
+            <div class="diagram">
+Data Collection → Data Cleaning → Exploratory Analysis →
+Feature Engineering → Model Selection → Training →
+Evaluation → Hyperparameter Tuning → Deployment → Monitoring
+            </div>
+            <div class="concept-box">
+                <h4>Why Pipelines Matter for Agents</h4>
+                <p>AI agents that learn from data follow this same pipeline. When an agent improves itself, it's effectively running this ML pipeline on its own experience data. Understanding these steps helps you build self-improving agent systems.</p>
+            </div>
+        </div>
+
+        <div class="nav-footer">
+            <a href="../01_Introduction_to_AI/" class="nav-btn secondary">&#8592; Previous: Intro to AI</a>
+            <a href="../03_Supervised_Learning/" class="nav-btn">Next: Supervised Learning &#8594;</a>
+        </div>
+    </div>
+</body>
+</html>

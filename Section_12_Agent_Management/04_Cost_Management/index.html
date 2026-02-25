@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cost Management - Agentic AI Tutorial</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<div class="hero" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);"><h1>Cost Management</h1><p class="subtitle">Optimizing token usage, caching, and model routing for cost efficiency</p><span class="badge">Section 12 &bull; 04</span></div>
+<div class="breadcrumb"><a href="../../">Home</a> <span class="sep">/</span> <a href="../">Section 12: Agent Management</a> <span class="sep">/</span> <span>Cost Management</span></div>
+<div class="container"><div class="card"><h2>Cost Drivers</h2><div class="grid">
+<div class="grid-item"><h4>Input Tokens</h4><p>Prompt + context. RAG adds significant input tokens.</p></div>
+<div class="grid-item"><h4>Output Tokens</h4><p>Response length. Usually more expensive than input.</p></div>
+<div class="grid-item"><h4>LLM Calls</h4><p>Multi-step agents make many calls per task.</p></div>
+<div class="grid-item"><h4>Model Choice</h4><p>GPT-4 is 60x more expensive than GPT-3.5.</p></div></div></div>
+<div class="card"><h2>Optimization Strategies</h2><div class="concept-box"><ul>
+<li><strong>Model Routing</strong>: Cheap model for simple tasks, expensive for complex (5-10x savings)</li>
+<li><strong>Caching</strong>: Cache common queries (semantic cache)</li>
+<li><strong>Prompt Optimization</strong>: Shorter prompts, fewer examples</li>
+<li><strong>Token Budgets</strong>: Set limits per task/user</li>
+<li><strong>Open-Source</strong>: Self-host for high-volume tasks</li></ul></div></div><div class="nav-footer"><a href="../03_Version_Control/" class="nav-btn secondary">&#8592; Previous: Agent Version Control</a><a href="../05_Human_Oversight/" class="nav-btn">Next: Human Oversight & Control &#8594;</a></div></div>
+</body></html>

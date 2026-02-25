@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Attention Mechanisms - Agentic AI Tutorial</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<div class="hero" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);"><h1>Attention Mechanisms</h1><p class="subtitle">The heart of every Transformer - how AI focuses on what matters</p><span class="badge">Section 03 &bull; Concept 05</span></div>
+<div class="breadcrumb"><a href="../../">Home</a> <span class="sep">/</span> <a href="../">Section 03: Deep Learning</a> <span class="sep">/</span> <span>Attention</span></div>
+<div class="container"><div class="card"><h2>Attention Is All You Need</h2><p>Attention lets models focus on relevant input parts. When you read "it" in "The cat sat because <strong>it</strong> was tired", you attend to "cat". Self-attention does this mathematically.</p></div>
+<div class="card"><h2>Types of Attention</h2><div class="grid">
+<div class="grid-item" style="border-top:4px solid #2196f3;"><h4>Self-Attention</h4><p>Each token attends to ALL others. Used in encoders.</p></div>
+<div class="grid-item" style="border-top:4px solid #9c27b0;"><h4>Causal Attention</h4><p>Only attend to PREVIOUS tokens. Used in GPT, Claude.</p></div>
+<div class="grid-item" style="border-top:4px solid #4caf50;"><h4>Cross-Attention</h4><p>Attend across sequences. Used in translation.</p></div>
+<div class="grid-item" style="border-top:4px solid #ff9800;"><h4>Multi-Head</h4><p>Multiple parallel attention ops capturing different patterns.</p></div></div></div>
+<div class="card"><h2>Optimizations for Production</h2><div class="table-wrapper"><table><thead><tr><th>Method</th><th>Impact</th><th>Used In</th></tr></thead><tbody>
+<tr><td><strong>Flash Attention</strong></td><td>2-4x faster</td><td>Most modern LLMs</td></tr>
+<tr><td><strong>KV Cache</strong></td><td>No recomputation</td><td>All autoregressive models</td></tr>
+<tr><td><strong>GQA</strong></td><td>Quality/speed balance</td><td>Llama 2/3, Mistral</td></tr></tbody></table></div>
+<div class="takeaway"><h4>For Agentic AI</h4><p>128K context uses 16x more memory than 8K due to quadratic attention scaling. Understanding this helps optimize agent costs.</p></div></div><div class="nav-footer"><a href="../04_Transformers_Architecture/" class="nav-btn secondary">&#8592; Previous: Transformers</a><a href="../../Section_04_Data_Science_and_Engineering/" class="nav-btn">Next Section: Data Science &#8594;</a></div></div>
+</body></html>

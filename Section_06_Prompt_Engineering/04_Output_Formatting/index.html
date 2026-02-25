@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Output Formatting & Structured Output - Agentic AI Tutorial</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<div class="hero" style="background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);"><h1>Output Formatting & Structured Output</h1><p class="subtitle">JSON output, function calling, and structured generation</p><span class="badge">Section 06 &bull; 04</span></div>
+<div class="breadcrumb"><a href="../../">Home</a> <span class="sep">/</span> <a href="../">Section 06: Prompt Engineering</a> <span class="sep">/</span> <span>Output Formatting & Structured Output</span></div>
+<div class="container"><div class="card"><h2>Why Structured Output?</h2><p>Agents must produce <strong>machine-readable output</strong> for tool calls. Free-form text is unreliable for programmatic use.</p></div>
+<div class="card"><h2>Function Calling</h2><div class="code-block"><span class="lang-tag">JSON</span>
+{
+  "name": "search_web",
+  "arguments": {
+    "query": "weather in New York City",
+    "num_results": 5
+  }
+}</div>
+<div class="concept-box"><h4>How Agents Use Tools</h4><p>The LLM generates a structured function call. The runtime executes it and returns results. The LLM processes results and decides next action.</p></div></div><div class="nav-footer"><a href="../03_System_Prompts/" class="nav-btn secondary">&#8592; Previous: System Prompts for Agents</a><a href="../05_Prompt_Security/" class="nav-btn">Next: Prompt Security & Safety &#8594;</a></div></div>
+</body></html>

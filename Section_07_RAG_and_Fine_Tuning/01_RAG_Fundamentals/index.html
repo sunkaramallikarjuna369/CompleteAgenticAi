@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RAG Fundamentals - Agentic AI Tutorial</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<div class="hero" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"><h1>RAG Fundamentals</h1><p class="subtitle">Retrieval-Augmented Generation - giving LLMs access to your data</p><span class="badge">Section 07 &bull; 01</span></div>
+<div class="breadcrumb"><a href="../../">Home</a> <span class="sep">/</span> <a href="../">Section 07: RAG & Fine-Tuning</a> <span class="sep">/</span> <span>RAG Fundamentals</span></div>
+<div class="container"><div class="card"><h2>What is RAG?</h2><p>RAG combines an LLM with a retrieval system. Instead of relying on training data alone, the LLM <strong>retrieves relevant documents</strong> at inference time and uses them to generate grounded responses.</p>
+<div class="diagram">User Query -> Embed -> Vector Search -> Top-K Documents -> Augment Prompt -> LLM -> Grounded Response</div></div>
+<div class="card"><h2>Why RAG?</h2><div class="grid">
+<div class="grid-item"><h4>Up-to-date</h4><p>Access info beyond training cutoff</p></div>
+<div class="grid-item"><h4>Grounded</h4><p>Reduce hallucination with source docs</p></div>
+<div class="grid-item"><h4>No Fine-tuning</h4><p>Just update the knowledge base</p></div>
+<div class="grid-item"><h4>Private</h4><p>Data stays in your infrastructure</p></div></div></div>
+<div class="card"><h2>RAG Components</h2><div class="diagram">Documents -> Loader -> Splitter -> Embedder -> Vector Store
+                                                                    |
+User Query -> Embedder -> Vector Search -> Top-K Chunks -> LLM Prompt -> Response</div>
+<div class="takeaway"><h4>For Agentic AI</h4><p>RAG is THE primary way agents access domain knowledge. Every enterprise agent uses RAG.</p></div></div><div class="nav-footer"><a href="../" class="nav-btn secondary">&#8592; Back to Section</a><a href="../02_Vector_Databases/" class="nav-btn">Next: Vector Databases &#8594;</a></div></div>
+</body></html>

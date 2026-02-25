@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cloud Architecture for AI - Agentic AI Tutorial</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<div class="hero" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"><h1>Cloud Architecture for AI</h1><p class="subtitle">Architecture patterns and best practices for deploying AI agents to the cloud</p><span class="badge">Section 15 &bull; 01</span></div>
+<div class="breadcrumb"><a href="../../">Home</a> <span class="sep">/</span> <a href="../">Section 15: Cloud Deployment</a> <span class="sep">/</span> <span>Cloud Architecture for AI</span></div>
+<div class="container"><div class="card"><h2>Agent Cloud Architecture</h2><div class="diagram">Client -> API Gateway -> Load Balancer -> Agent Service (orchestration)
+                                                     |
+                              ┌───────────────────────┼─────────────────────┐
+                              v                       v                     v
+                        LLM Gateway            RAG Service           Tool Service
+                    (model routing,        (vector DB, search)    (code, APIs, browser)
+                     caching, fallback)
+                              |                       |                     |
+                         LLM Providers          Vector DB            Execution Sandbox
+                    (OpenAI, Anthropic,      (Pinecone, Qdrant)      (E2B, Docker)
+                     self-hosted vLLM)</div></div>
+<div class="card"><h2>Key Design Decisions</h2><div class="grid">
+<div class="grid-item"><h4>Managed vs Self-hosted</h4><p>API (faster start) vs Self-hosted (cost control, privacy)</p></div>
+<div class="grid-item"><h4>Stateful vs Stateless</h4><p>State in service (simpler) vs external store (scalable)</p></div>
+<div class="grid-item"><h4>Sync vs Async</h4><p>Real-time (chat) vs background (batch processing)</p></div>
+<div class="grid-item"><h4>Single vs Multi-region</h4><p>Simple vs low latency globally</p></div></div>
+<div class="takeaway"><h4>For Architects</h4><p>Start with managed LLM APIs for faster time-to-market. Design for horizontal scaling from day one. Add self-hosted models later for cost or privacy.</p></div></div><div class="nav-footer"><a href="../" class="nav-btn secondary">&#8592; Back to Section</a><a href="../02_AWS_Deployment/" class="nav-btn">Next: AWS Deployment &#8594;</a></div></div>
+</body></html>

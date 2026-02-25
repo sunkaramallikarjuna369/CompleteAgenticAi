@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speech Recognition - Agentic AI Tutorial</title>
+    <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+    <div class="hero" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+        <h1>Speech Recognition &amp; Audio AI</h1>
+        <p class="subtitle">Voice-enabled AI — understanding and generating human speech</p>
+        <span class="badge">Section 02 &bull; Concept 03</span>
+    </div>
+    <div class="breadcrumb">
+        <a href="../../">Home</a> <span class="sep">/</span>
+        <a href="../">Section 02: Key Technologies</a> <span class="sep">/</span>
+        <span>Speech Recognition</span>
+    </div>
+    <div class="container">
+        <div class="card">
+            <h2>Speech Technologies for Agents</h2>
+            <div class="grid">
+                <div class="grid-item" style="border-top: 4px solid #2196f3;">
+                    <h4>ASR (Speech-to-Text)</h4>
+                    <span class="tag tag-blue">Input</span>
+                    <p>Converts spoken language into text. Enables voice commands and dictation.</p>
+                    <p><strong>Best Model:</strong> OpenAI Whisper — multilingual, robust, open-source</p>
+                </div>
+                <div class="grid-item" style="border-top: 4px solid #4caf50;">
+                    <h4>TTS (Text-to-Speech)</h4>
+                    <span class="tag tag-green">Output</span>
+                    <p>Generates natural-sounding speech from text. Creates voice responses.</p>
+                    <p><strong>Best Model:</strong> ElevenLabs — ultra-realistic voice synthesis</p>
+                </div>
+                <div class="grid-item" style="border-top: 4px solid #ff9800;">
+                    <h4>Speaker Diarization</h4>
+                    <span class="tag tag-orange">Analysis</span>
+                    <p>Identifies who spoke when in multi-speaker audio. Critical for meeting agents.</p>
+                    <p><strong>Best Tool:</strong> pyannote.audio — open-source diarization</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Voice Agent Architecture</h2>
+            <div class="diagram">
+User Speaks → Microphone → ASR (Whisper) → Text
+                                               ↓
+                                    ┌─────────────────────┐
+                                    │    LLM Agent Brain   │
+                                    │  - Understand intent  │
+                                    │  - Call tools/APIs    │
+                                    │  - Generate response  │
+                                    └─────────┬───────────┘
+                                               ↓
+Speaker ← Audio Output ← TTS (ElevenLabs) ← Response Text
+            </div>
+            <div class="warning">
+                <h4>Latency is Critical</h4>
+                <p>Voice conversations feel natural only if the response comes within ~500ms. Every component (ASR → LLM → TTS) adds latency. Use streaming ASR, fast LLM inference, and streaming TTS to keep the experience smooth.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Code Example: Speech-to-Text with Whisper</h2>
+            <div class="code-block">
+                <span class="lang-tag">Python</span>
+<span class="keyword">import</span> whisper
+
+<span class="comment"># Load Whisper model</span>
+model = whisper.load_model(<span class="string">"base"</span>)
+
+<span class="comment"># Transcribe audio file</span>
+result = model.transcribe(<span class="string">"meeting_recording.mp3"</span>)
+<span class="function">print</span>(result[<span class="string">"text"</span>])
+
+<span class="comment"># With language detection</span>
+<span class="function">print</span>(<span class="string">f"Detected language: {result['language']}"</span>)
+
+<span class="comment"># For real-time streaming, use faster-whisper</span>
+<span class="keyword">from</span> faster_whisper <span class="keyword">import</span> WhisperModel
+model = WhisperModel(<span class="string">"base"</span>, device=<span class="string">"cuda"</span>)
+segments, info = model.transcribe(<span class="string">"audio.mp3"</span>)
+<span class="keyword">for</span> segment <span class="keyword">in</span> segments:
+    <span class="function">print</span>(<span class="string">f"[{segment.start:.2f}s → {segment.end:.2f}s] {segment.text}"</span>)
+            </div>
+        </div>
+
+        <div class="nav-footer">
+            <a href="../02_Computer_Vision/" class="nav-btn secondary">&#8592; Previous: Computer Vision</a>
+            <a href="../04_Transfer_Learning/" class="nav-btn">Next: Transfer Learning &#8594;</a>
+        </div>
+    </div>
+</body>
+</html>

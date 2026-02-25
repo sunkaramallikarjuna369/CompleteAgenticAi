@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transfer Learning - Agentic AI Tutorial</title>
+    <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+    <div class="hero" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+        <h1>Transfer Learning</h1>
+        <p class="subtitle">The technique that makes modern AI accessible — stand on the shoulders of giants</p>
+        <span class="badge">Section 02 &bull; Concept 04</span>
+    </div>
+    <div class="breadcrumb">
+        <a href="../../">Home</a> <span class="sep">/</span>
+        <a href="../">Section 02: Key Technologies</a> <span class="sep">/</span>
+        <span>Transfer Learning</span>
+    </div>
+    <div class="container">
+        <div class="card">
+            <h2>Why Transfer Learning Changed Everything</h2>
+            <div class="grid">
+                <div class="grid-item" style="border-left: 4px solid #f44336;">
+                    <h4>Without Transfer Learning</h4>
+                    <ul>
+                        <li>Train from scratch every time</li>
+                        <li>Need millions of labeled examples</li>
+                        <li>Weeks of GPU compute ($10K-$100M)</li>
+                        <li>Only accessible to big tech companies</li>
+                    </ul>
+                </div>
+                <div class="grid-item" style="border-left: 4px solid #4caf50;">
+                    <h4>With Transfer Learning</h4>
+                    <ul>
+                        <li>Start with pre-trained foundation model</li>
+                        <li>Fine-tune with 100s-1000s of examples</li>
+                        <li>Hours of compute ($10-$1000)</li>
+                        <li>Accessible to individuals and startups</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="concept-box">
+                <h4>The Core Idea</h4>
+                <p>A model trained on a huge general dataset (like all of Wikipedia + books + code) learns general patterns about language, logic, and the world. These patterns <strong>transfer</strong> to specific tasks. You don't need to teach a model English from scratch just to classify emails — you start with a model that already understands English!</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Types of Transfer Learning</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead><tr><th>Type</th><th>What Changes</th><th>Data Needed</th><th>When to Use</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Feature Extraction</strong></td><td>Only the final layer</td><td>Very little (100s)</td><td>Task very similar to pre-training</td></tr>
+                        <tr><td><strong>Fine-Tuning</strong></td><td>Some or all layers</td><td>Moderate (1000s-10Ks)</td><td>Task somewhat different</td></tr>
+                        <tr><td><strong>Domain Adaptation</strong></td><td>Adapt to new domain</td><td>Domain-specific data</td><td>Different domain, similar structure</td></tr>
+                        <tr><td><strong>Prompt-Based</strong></td><td>Nothing (zero-shot)</td><td>Zero to few examples</td><td>Fast iteration, no training</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="diagram">
+Pre-training (Foundation)          Fine-tuning (Specialization)
+┌─────────────────────┐           ┌─────────────────────┐
+│ Trained on billions  │           │ Your task-specific   │
+│ of tokens/images     │ ────────►│ data (100s-1000s)    │
+│                      │           │                      │
+│ General knowledge    │           │ Specialized expert   │
+│ about the world      │           │ for your use case    │
+└─────────────────────┘           └─────────────────────┘
+   Cost: $1M - $100M+                Cost: $10 - $1,000
+   Time: Weeks-Months                Time: Hours-Days
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Transfer Learning for Agentic AI</h2>
+            <div class="takeaway">
+                <h4>This is WHY Agentic AI is Possible</h4>
+                <p>Every AI agent you build uses transfer learning:</p>
+                <ul>
+                    <li><strong>Foundation models</strong> (GPT-4, Claude, Llama) provide the general intelligence</li>
+                    <li><strong>System prompts</strong> transfer this intelligence to specific agent roles</li>
+                    <li><strong>Fine-tuning</strong> creates specialized agent behaviors</li>
+                    <li><strong>RAG</strong> adds domain knowledge without retraining</li>
+                    <li><strong>LoRA/QLoRA</strong> enable efficient fine-tuning of massive models on consumer hardware</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Code Example: Fine-tuning a Pre-trained Model</h2>
+            <div class="code-block">
+                <span class="lang-tag">Python</span>
+<span class="keyword">from</span> transformers <span class="keyword">import</span> AutoModelForSequenceClassification, AutoTokenizer
+<span class="keyword">from</span> transformers <span class="keyword">import</span> Trainer, TrainingArguments
+
+<span class="comment"># Load pre-trained model (transfer learning!)</span>
+model_name = <span class="string">"bert-base-uncased"</span>
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+model = AutoModelForSequenceClassification.from_pretrained(
+    model_name, num_labels=<span class="number">2</span>  <span class="comment"># Binary classification</span>
+)
+
+<span class="comment"># The model already understands English from pre-training</span>
+<span class="comment"># Now we just fine-tune it on our specific task</span>
+training_args = TrainingArguments(
+    output_dir=<span class="string">"./results"</span>,
+    num_train_epochs=<span class="number">3</span>,
+    per_device_train_batch_size=<span class="number">16</span>,
+    learning_rate=<span class="number">2e-5</span>,  <span class="comment"># Small LR for fine-tuning!</span>
+    warmup_steps=<span class="number">500</span>,
+)
+
+<span class="comment"># trainer = Trainer(model=model, args=training_args, ...)</span>
+<span class="comment"># trainer.train()  # Fine-tune in minutes, not months!</span>
+            </div>
+        </div>
+
+        <div class="nav-footer">
+            <a href="../03_Speech_Recognition/" class="nav-btn secondary">&#8592; Previous: Speech Recognition</a>
+            <a href="../../Section_03_Deep_Learning_and_Neural_Networks/" class="nav-btn">Next: Section 03 - Deep Learning &#8594;</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tool Use & Function Calling - Agentic AI Tutorial</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<div class="hero" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"><h1>Tool Use & Function Calling</h1><p class="subtitle">How agents interact with the world through tools and APIs</p><span class="badge">Section 08 &bull; 01</span></div>
+<div class="breadcrumb"><a href="../../">Home</a> <span class="sep">/</span> <a href="../">Section 08: Agent Capabilities</a> <span class="sep">/</span> <span>Tool Use & Function Calling</span></div>
+<div class="container"><div class="card"><h2>From Chatbot to Agent</h2><p>Tool use transforms a chatbot into an agent. It's the ability to <strong>take actions in the real world</strong> - search, execute code, call APIs, manage files.</p></div>
+<div class="card"><h2>How It Works</h2><div class="diagram">1. Define tools: {name, description, parameters (JSON schema)}
+2. User asks a question
+3. LLM decides: "I need to use the search tool"
+4. LLM generates: {"name": "search", "args": {"query": "..."}}
+5. Runtime executes the tool call
+6. Results returned to LLM
+7. LLM generates final response using results</div></div>
+<div class="card"><h2>Tool Types</h2><div class="grid">
+<div class="grid-item"><h4>Search</h4><p>Web search, knowledge base, vector DB</p></div>
+<div class="grid-item"><h4>Code Execution</h4><p>Python, JavaScript, SQL, shell</p></div>
+<div class="grid-item"><h4>APIs</h4><p>REST, GraphQL, databases</p></div>
+<div class="grid-item"><h4>Browser</h4><p>Navigate, click, type, screenshot</p></div>
+<div class="grid-item"><h4>Files</h4><p>Read, write, edit, search</p></div>
+<div class="grid-item"><h4>Communication</h4><p>Email, Slack, notifications</p></div></div>
+<div class="takeaway"><h4>The Defining Capability</h4><p>Tool use IS what makes an agent an agent. The quality of tool definitions directly affects agent performance.</p></div></div><div class="nav-footer"><a href="../" class="nav-btn secondary">&#8592; Back to Section</a><a href="../02_Planning_and_Reasoning/" class="nav-btn">Next: Planning & Reasoning &#8594;</a></div></div>
+</body></html>
