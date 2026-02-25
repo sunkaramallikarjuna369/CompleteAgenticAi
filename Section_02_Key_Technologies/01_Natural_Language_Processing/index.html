@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Natural Language Processing - Agentic AI Tutorial</title>
+    <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+    <div class="hero" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+        <h1>Natural Language Processing</h1>
+        <p class="subtitle">The technology that lets AI understand and generate human language — the core of every AI agent</p>
+        <span class="badge">Section 02 &bull; Concept 01</span>
+    </div>
+    <div class="breadcrumb">
+        <a href="../../">Home</a> <span class="sep">/</span>
+        <a href="../">Section 02: Key Technologies</a> <span class="sep">/</span>
+        <span>Natural Language Processing</span>
+    </div>
+    <div class="container">
+        <div class="card">
+            <h2>Why NLP is the Heart of Agentic AI</h2>
+            <p>Every modern AI agent communicates through natural language. NLP is not just one of many technologies — it's <strong>the</strong> foundational technology that makes agents possible. Understanding NLP deeply will help you build better agents and debug them when they fail.</p>
+            <div class="diagram">
+User Input (Natural Language)
+        ↓
+    [ NLP Processing ]
+    - Tokenization
+    - Understanding intent
+    - Extracting entities
+    - Semantic parsing
+        ↓
+    [ Agent Reasoning ]
+    - Plan actions
+    - Select tools
+    - Generate response
+        ↓
+Output (Natural Language)
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Core NLP Tasks</h2>
+            <div class="grid">
+                <div class="grid-item">
+                    <div class="icon">🏷️</div>
+                    <h4>Named Entity Recognition</h4>
+                    <p>Identifies entities like people, organizations, locations, dates in text.</p>
+                    <p><em>"<u>Apple Inc.</u> was founded by <u>Steve Jobs</u> in <u>1976</u>"</em></p>
+                </div>
+                <div class="grid-item">
+                    <div class="icon">😊</div>
+                    <h4>Sentiment Analysis</h4>
+                    <p>Determines the emotional tone of text — positive, negative, or neutral.</p>
+                    <p><em>"This product is amazing!" → Positive (0.95)</em></p>
+                </div>
+                <div class="grid-item">
+                    <div class="icon">📝</div>
+                    <h4>Text Classification</h4>
+                    <p>Categorizes text into predefined classes.</p>
+                    <p><em>Email → Spam / Not Spam / Promotion / Social</em></p>
+                </div>
+                <div class="grid-item">
+                    <div class="icon">🌐</div>
+                    <h4>Machine Translation</h4>
+                    <p>Translates text between languages while preserving meaning.</p>
+                    <p><em>"Hello world" → "Bonjour le monde"</em></p>
+                </div>
+                <div class="grid-item">
+                    <div class="icon">❓</div>
+                    <h4>Question Answering</h4>
+                    <p>Finds answers to questions from a given context or knowledge base.</p>
+                    <p><em>Q: "Who founded Apple?" → A: "Steve Jobs"</em></p>
+                </div>
+                <div class="grid-item">
+                    <div class="icon">📋</div>
+                    <h4>Summarization</h4>
+                    <p>Condenses long text while preserving key information.</p>
+                    <p><em>10-page report → 3-sentence summary</em></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Evolution of NLP</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead><tr><th>Era</th><th>Approach</th><th>Key Methods</th><th>Limitations</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Rule-Based</strong> (1950s-90s)</td><td>Hand-crafted rules</td><td>Grammars, patterns, regex</td><td>Doesn't scale, brittle</td></tr>
+                        <tr><td><strong>Statistical</strong> (1990s-2010s)</td><td>Probabilistic models</td><td>HMMs, n-grams, TF-IDF, Naive Bayes</td><td>Sparse representations, limited context</td></tr>
+                        <tr><td><strong>Neural</strong> (2013-2017)</td><td>Deep learning</td><td>Word2Vec, RNNs, LSTMs, Attention</td><td>Sequential processing, training difficulty</td></tr>
+                        <tr><td><strong>Transformer</strong> (2017+)</td><td>Self-attention</td><td>BERT, GPT, T5</td><td>Compute intensive, context window limits</td></tr>
+                        <tr><td><strong>LLM</strong> (2020+)</td><td>Massive pre-training</td><td>GPT-4, Claude, Gemini, Llama</td><td>Hallucinations, cost, latency</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="concept-box">
+                <h4>The Key Breakthrough: Transformers (2017)</h4>
+                <p>The paper "Attention Is All You Need" introduced the Transformer architecture, which processes all tokens in parallel using self-attention. This unlocked:</p>
+                <ul>
+                    <li><strong>Parallel training</strong> on GPUs (unlike sequential RNNs)</li>
+                    <li><strong>Long-range dependencies</strong> via attention across all positions</li>
+                    <li><strong>Pre-training + fine-tuning</strong> paradigm (BERT, GPT)</li>
+                    <li><strong>Scaling laws</strong> — bigger models + more data = better performance</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Word Embeddings</h2>
+            <p>The idea that revolutionized NLP: represent words as dense vectors in a continuous space where semantic relationships are preserved.</p>
+            <div class="diagram">
+king - man + woman ≈ queen
+Paris - France + Italy ≈ Rome
+
+Vector space:
+  cat ●─────● dog     (close: both animals)
+               │
+               │
+  car ●─────● truck   (close: both vehicles)
+  
+  (animals and vehicles are far apart)
+            </div>
+            <div class="grid">
+                <div class="grid-item">
+                    <h4>Static Embeddings</h4>
+                    <p><strong>Word2Vec, GloVe, FastText</strong> — each word gets ONE vector regardless of context. "bank" has the same embedding in "river bank" and "bank account".</p>
+                </div>
+                <div class="grid-item">
+                    <h4>Contextual Embeddings</h4>
+                    <p><strong>BERT, GPT, ELMo</strong> — each word gets a DIFFERENT vector based on surrounding context. This was a massive breakthrough for NLP accuracy.</p>
+                </div>
+            </div>
+            <div class="takeaway">
+                <h4>For Agentic AI</h4>
+                <p>Embeddings are the foundation of <strong>RAG (Retrieval Augmented Generation)</strong>. When an agent searches its knowledge base, it converts the query to an embedding vector and finds the most similar document embeddings. Understanding embeddings helps you build better RAG systems!</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>NLP in Agent Systems</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead><tr><th>NLP Capability</th><th>Agent Application</th><th>Example</th></tr></thead>
+                    <tbody>
+                        <tr><td>Text Understanding</td><td>Parse user requests</td><td>"Book a flight to NYC tomorrow" → intent: book_flight, city: NYC, date: tomorrow</td></tr>
+                        <tr><td>Entity Extraction</td><td>Extract tool parameters</td><td>Pull API parameters from natural language</td></tr>
+                        <tr><td>Sentiment Analysis</td><td>Adapt agent behavior</td><td>Detect frustrated user → escalate to human</td></tr>
+                        <tr><td>Summarization</td><td>Compress context</td><td>Summarize long documents to fit context window</td></tr>
+                        <tr><td>Semantic Search</td><td>RAG retrieval</td><td>Find relevant knowledge for answering questions</td></tr>
+                        <tr><td>Text Generation</td><td>Produce responses</td><td>Generate helpful, contextual answers</td></tr>
+                        <tr><td>Classification</td><td>Route to sub-agents</td><td>Classify request type → send to appropriate specialist agent</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Code Example: NLP with spaCy and Transformers</h2>
+            <div class="code-block">
+                <span class="lang-tag">Python</span>
+<span class="comment"># Named Entity Recognition with spaCy</span>
+<span class="keyword">import</span> spacy
+nlp = spacy.load(<span class="string">"en_core_web_sm"</span>)
+
+text = <span class="string">"Apple Inc. was founded by Steve Jobs in Cupertino, California in 1976."</span>
+doc = nlp(text)
+
+<span class="keyword">for</span> ent <span class="keyword">in</span> doc.ents:
+    <span class="function">print</span>(<span class="string">f"{ent.text}: {ent.label_}"</span>)
+<span class="comment"># Apple Inc.: ORG</span>
+<span class="comment"># Steve Jobs: PERSON</span>
+<span class="comment"># Cupertino: GPE</span>
+<span class="comment"># California: GPE</span>
+<span class="comment"># 1976: DATE</span>
+
+<span class="comment"># Sentiment Analysis with Transformers</span>
+<span class="keyword">from</span> transformers <span class="keyword">import</span> pipeline
+sentiment = pipeline(<span class="string">"sentiment-analysis"</span>)
+result = sentiment(<span class="string">"I love this tutorial on Agentic AI!"</span>)
+<span class="function">print</span>(result)
+<span class="comment"># [{'label': 'POSITIVE', 'score': 0.9998}]</span>
+            </div>
+        </div>
+
+        <div class="nav-footer">
+            <a href="../" class="nav-btn secondary">&#8592; Back to Section 02</a>
+            <a href="../02_Computer_Vision/" class="nav-btn">Next: Computer Vision &#8594;</a>
+        </div>
+    </div>
+</body>
+</html>

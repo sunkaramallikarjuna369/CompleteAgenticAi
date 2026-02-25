@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supervised Learning - Agentic AI Tutorial</title>
+    <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+    <div class="hero" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+        <h1>Supervised Learning</h1>
+        <p class="subtitle">Learning from labeled examples — the most widely used ML paradigm</p>
+        <span class="badge">Section 01 &bull; Concept 03</span>
+    </div>
+    <div class="breadcrumb">
+        <a href="../../">Home</a> <span class="sep">/</span>
+        <a href="../">Section 01: AI &amp; ML Foundations</a> <span class="sep">/</span>
+        <span>Supervised Learning</span>
+    </div>
+    <div class="container">
+        <div class="card">
+            <h2>How Supervised Learning Works</h2>
+            <p>The algorithm learns a mapping from inputs (X) to outputs (y) using labeled examples. Once trained, it can predict outputs for new, unseen inputs.</p>
+            <div class="diagram">
+Training: Input Features (X) + Known Labels (y) → Algorithm → Trained Model
+                                    ↓
+Inference: New Inputs (X_new) → Trained Model → Predictions (y_pred)
+            </div>
+            <div class="concept-box">
+                <h4>Analogy</h4>
+                <p>Imagine studying for an exam with an answer key. You look at questions (features) and answers (labels), learn the patterns, then apply that knowledge to new questions you haven't seen before. That's supervised learning!</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Classification vs Regression</h2>
+            <div class="grid">
+                <div class="grid-item" style="border-top: 4px solid #2196f3;">
+                    <h4>Classification</h4>
+                    <span class="tag tag-blue">Discrete Output</span>
+                    <p>Predicts categories or classes.</p>
+                    <ul>
+                        <li><strong>Binary:</strong> Spam / Not Spam</li>
+                        <li><strong>Multi-class:</strong> Cat / Dog / Bird</li>
+                        <li><strong>Multi-label:</strong> Action AND Comedy</li>
+                    </ul>
+                    <p><strong>Algorithms:</strong> Logistic Regression, SVM, Random Forest, Neural Networks</p>
+                </div>
+                <div class="grid-item" style="border-top: 4px solid #ff9800;">
+                    <h4>Regression</h4>
+                    <span class="tag tag-orange">Continuous Output</span>
+                    <p>Predicts numerical values.</p>
+                    <ul>
+                        <li><strong>Price prediction:</strong> $350,000</li>
+                        <li><strong>Temperature:</strong> 72.5°F</li>
+                        <li><strong>Sales forecast:</strong> 1,247 units</li>
+                    </ul>
+                    <p><strong>Algorithms:</strong> Linear Regression, XGBoost, LightGBM, Neural Networks</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Key Algorithms</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead><tr><th>Algorithm</th><th>Type</th><th>How It Works</th><th>Strengths</th><th>Weaknesses</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Logistic Regression</strong></td><td>Classification</td><td>Sigmoid function on linear combination</td><td>Simple, interpretable, fast</td><td>Linear boundaries only</td></tr>
+                        <tr><td><strong>Decision Trees</strong></td><td>Both</td><td>Split data based on feature thresholds</td><td>Interpretable, handles mixed data</td><td>Overfits easily</td></tr>
+                        <tr><td><strong>Random Forest</strong></td><td>Both</td><td>Ensemble of many decision trees</td><td>Robust, handles overfitting</td><td>Slow for large datasets</td></tr>
+                        <tr><td><strong>SVM</strong></td><td>Classification</td><td>Finds maximum margin hyperplane</td><td>Effective in high dimensions</td><td>Slow on large datasets</td></tr>
+                        <tr><td><strong>XGBoost</strong></td><td>Both</td><td>Sequential tree boosting with regularization</td><td>Top performance on tabular data</td><td>Many hyperparameters</td></tr>
+                        <tr><td><strong>KNN</strong></td><td>Both</td><td>Classify by nearest neighbors' vote</td><td>Simple, no training phase</td><td>Slow at prediction, curse of dimensionality</td></tr>
+                        <tr><td><strong>Neural Networks</strong></td><td>Both</td><td>Layers of connected neurons learn representations</td><td>Learns complex patterns</td><td>Data hungry, black box</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Evaluation Metrics</h2>
+            <h3>For Classification</h3>
+            <div class="concept-box">
+                <h4>The Confusion Matrix</h4>
+                <div class="diagram">
+                      Predicted Positive    Predicted Negative
+Actual Positive    True Positive (TP)    False Negative (FN)
+Actual Negative    False Positive (FP)   True Negative (TN)
+
+Precision = TP / (TP + FP)    "Of all predicted positive, how many are correct?"
+Recall    = TP / (TP + FN)    "Of all actual positive, how many did we catch?"
+F1 Score  = 2 * (P * R) / (P + R)  "Harmonic mean — balances both"
+                </div>
+            </div>
+            <div class="warning">
+                <h4>When Accuracy Lies</h4>
+                <p>If 99% of emails are not spam, a model that always predicts "not spam" gets 99% accuracy but catches zero spam! Always check Precision, Recall, and F1 for imbalanced datasets.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Code Example: Classification with Scikit-Learn</h2>
+            <div class="code-block">
+                <span class="lang-tag">Python</span>
+<span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_iris
+<span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split
+<span class="keyword">from</span> sklearn.ensemble <span class="keyword">import</span> RandomForestClassifier
+<span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> classification_report
+
+<span class="comment"># Load data</span>
+X, y = load_iris(return_X_y=<span class="keyword">True</span>)
+
+<span class="comment"># Split into train and test</span>
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=<span class="number">0.2</span>, random_state=<span class="number">42</span>
+)
+
+<span class="comment"># Train model</span>
+model = RandomForestClassifier(n_estimators=<span class="number">100</span>, random_state=<span class="number">42</span>)
+model.fit(X_train, y_train)
+
+<span class="comment"># Evaluate</span>
+y_pred = model.predict(X_test)
+<span class="function">print</span>(classification_report(y_test, y_pred))
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Connection to Agentic AI</h2>
+            <div class="takeaway">
+                <h4>Why This Matters for Agents</h4>
+                <ul>
+                    <li><strong>Intent Classification:</strong> Agents classify user intents to determine the right action</li>
+                    <li><strong>Entity Extraction:</strong> Supervised models extract key entities from text</li>
+                    <li><strong>Fine-tuning LLMs:</strong> Essentially supervised learning on instruction-response pairs</li>
+                    <li><strong>Agent Evaluation:</strong> We use precision, recall, and F1 to measure agent quality</li>
+                    <li><strong>Routing Decisions:</strong> Multi-agent systems use classifiers to route tasks to the right agent</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="nav-footer">
+            <a href="../02_Machine_Learning_Basics/" class="nav-btn secondary">&#8592; Previous: ML Basics</a>
+            <a href="../04_Unsupervised_Learning/" class="nav-btn">Next: Unsupervised Learning &#8594;</a>
+        </div>
+    </div>
+</body>
+</html>

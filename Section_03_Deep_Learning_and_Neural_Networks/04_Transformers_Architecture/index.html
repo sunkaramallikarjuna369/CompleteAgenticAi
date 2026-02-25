@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Transformer Architecture - Agentic AI Tutorial</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<div class="hero" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"><h1>The Transformer Architecture</h1><p class="subtitle">Attention Is All You Need - the architecture behind every modern AI agent</p><span class="badge">Section 03 &bull; Concept 04</span></div>
+<div class="breadcrumb"><a href="../../">Home</a> <span class="sep">/</span> <a href="../">Section 03: Deep Learning</a> <span class="sep">/</span> <span>Transformers</span></div>
+<div class="container"><div class="card"><h2>The Most Important Architecture in AI</h2><p>Introduced in 2017 by Vaswani et al., the Transformer powers <strong>every major LLM</strong>: GPT-4, Claude, Gemini, Llama.</p>
+<div class="concept-box"><h4>Why Transformers Won</h4><ul>
+<li><strong>Parallel</strong> - all tokens processed simultaneously</li>
+<li><strong>Long-range attention</strong> - any token attends to any other</li>
+<li><strong>Scalable</strong> - predictable improvement with scale</li>
+<li><strong>Versatile</strong> - text, images, audio, code</li></ul></div></div>
+<div class="card"><h2>Self-Attention (QKV)</h2>
+<div class="diagram">For "The cat sat on the mat":
+"sat" attends to: "cat" (0.40), "mat" (0.25), "on" (0.10)...
+Attention(Q,K,V) = softmax(QK^T / sqrt(d_k)) * V</div>
+<div class="concept-box"><h4>Query, Key, Value</h4><ul>
+<li><strong>Query</strong>: What am I looking for?</li>
+<li><strong>Key</strong>: What do I contain?</li>
+<li><strong>Value</strong>: What info do I provide?</li></ul></div></div>
+<div class="card"><h2>Transformer Variants</h2><div class="table-wrapper"><table><thead><tr><th>Type</th><th>Models</th><th>Use</th></tr></thead><tbody>
+<tr><td><strong>Encoder-Only</strong></td><td>BERT, RoBERTa</td><td>Classification, NER</td></tr>
+<tr><td><strong>Decoder-Only</strong></td><td>GPT-4, Claude, Llama</td><td>Generation, agents</td></tr>
+<tr><td><strong>Enc-Dec</strong></td><td>T5, BART</td><td>Translation</td></tr></tbody></table></div>
+<div class="takeaway"><h4>For Agentic AI</h4><p>All agents use decoder-only Transformers. Understanding this architecture is essential for optimizing agent performance, cost, and latency.</p></div></div>
+<div class="card"><h2>Key Numbers</h2><div class="table-wrapper"><table><thead><tr><th>Model</th><th>Params</th><th>Context</th></tr></thead><tbody>
+<tr><td>GPT-3</td><td>175B</td><td>2K tokens</td></tr>
+<tr><td>GPT-4</td><td>~1.8T</td><td>128K tokens</td></tr>
+<tr><td>Llama 3</td><td>8B-405B</td><td>128K tokens</td></tr></tbody></table></div></div><div class="nav-footer"><a href="../03_Recurrent_Neural_Networks/" class="nav-btn secondary">&#8592; Previous: RNNs</a><a href="../05_Attention_Mechanisms/" class="nav-btn">Next: Attention Mechanisms &#8594;</a></div></div>
+</body></html>

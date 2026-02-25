@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agent Design Patterns - Agentic AI Tutorial</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<div class="hero" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);"><h1>Agent Design Patterns</h1><p class="subtitle">ReAct, Plan-and-Execute, Reflection, and other proven patterns</p><span class="badge">Section 10 &bull; 03</span></div>
+<div class="breadcrumb"><a href="../../">Home</a> <span class="sep">/</span> <a href="../">Section 10: Agentic AI</a> <span class="sep">/</span> <span>Agent Design Patterns</span></div>
+<div class="container"><div class="card"><h2>Core Patterns</h2><div class="grid">
+<div class="grid-item" style="border-top:4px solid #2196f3;"><h4>ReAct</h4><p>Thought -> Action -> Observation -> Thought -> ... The default agent pattern.</p></div>
+<div class="grid-item" style="border-top:4px solid #4caf50;"><h4>Plan-and-Execute</h4><p>Create full plan first, then execute steps sequentially.</p></div>
+<div class="grid-item" style="border-top:4px solid #ff9800;"><h4>Reflection</h4><p>Generate -> Evaluate -> Improve -> Iterate until quality threshold.</p></div>
+<div class="grid-item" style="border-top:4px solid #9c27b0;"><h4>Human-in-the-Loop</h4><p>Request human approval for critical or irreversible decisions.</p></div></div></div>
+<div class="card"><h2>ReAct in Detail</h2><div class="diagram">Thought: I need to find the current stock price of AAPL
+Action: search("AAPL stock price today")
+Observation: AAPL is trading at $185.50
+Thought: I have the price, now I can calculate the portfolio value
+Action: calculate(shares=100, price=185.50)
+Observation: Portfolio value = $18,550
+Answer: Your 100 shares of AAPL are worth $18,550</div></div><div class="nav-footer"><a href="../02_Agent_Architecture/" class="nav-btn secondary">&#8592; Previous: Agent Architecture</a><a href="../04_Agent_Orchestration/" class="nav-btn">Next: Agent Orchestration &#8594;</a></div></div>
+</body></html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chunking Strategies - Agentic AI Tutorial</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<div class="hero" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);"><h1>Chunking Strategies</h1><p class="subtitle">How to split documents for optimal retrieval</p><span class="badge">Section 07 &bull; 03</span></div>
+<div class="breadcrumb"><a href="../../">Home</a> <span class="sep">/</span> <a href="../">Section 07: RAG & Fine-Tuning</a> <span class="sep">/</span> <span>Chunking Strategies</span></div>
+<div class="container"><div class="card"><h2>Why Chunking Matters</h2><p>Documents must be split into chunks for embedding. The chunking strategy <strong>dramatically affects RAG quality</strong>.</p></div>
+<div class="card"><h2>Strategies</h2><div class="grid">
+<div class="grid-item"><h4>Fixed Size</h4><p>Split every N tokens with overlap. Simple but may break mid-sentence.</p></div>
+<div class="grid-item"><h4>Recursive</h4><p>Try paragraphs first, then sentences, then characters. Most popular.</p></div>
+<div class="grid-item"><h4>Semantic</h4><p>Split at topic boundaries using embedding similarity.</p></div>
+<div class="grid-item"><h4>Document-Aware</h4><p>Respect headers, sections, tables. Best for structured docs.</p></div></div></div>
+<div class="card"><h2>Key Parameters</h2><div class="table-wrapper"><table><thead><tr><th>Parameter</th><th>Range</th><th>Effect</th></tr></thead><tbody>
+<tr><td>Chunk size</td><td>256-1024 tokens</td><td>Larger = more context, less precise</td></tr>
+<tr><td>Overlap</td><td>10-20%</td><td>Prevents losing context at boundaries</td></tr>
+<tr><td>Top-K</td><td>3-10</td><td>More chunks = more context, higher cost</td></tr></tbody></table></div></div><div class="nav-footer"><a href="../02_Vector_Databases/" class="nav-btn secondary">&#8592; Previous: Vector Databases</a><a href="../04_Advanced_RAG/" class="nav-btn">Next: Advanced RAG Techniques &#8594;</a></div></div>
+</body></html>

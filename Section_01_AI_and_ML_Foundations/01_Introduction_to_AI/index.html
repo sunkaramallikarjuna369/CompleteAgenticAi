@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to Artificial Intelligence - Agentic AI Tutorial</title>
+    <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+    <div class="hero" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+        <h1>Introduction to Artificial Intelligence</h1>
+        <p class="subtitle">Understanding the foundations of AI — from its origins to the dawn of Agentic AI</p>
+        <span class="badge">Section 01 &bull; Concept 01</span>
+    </div>
+
+    <div class="breadcrumb">
+        <a href="../../">Home</a> <span class="sep">/</span>
+        <a href="../">Section 01: AI &amp; ML Foundations</a> <span class="sep">/</span>
+        <span>Introduction to AI</span>
+    </div>
+
+    <div class="container">
+
+        <!-- What is AI -->
+        <div class="card">
+            <h2>What is Artificial Intelligence?</h2>
+            <p>Artificial Intelligence (AI) is the science and engineering of creating intelligent machines and software that can perform tasks typically requiring human intelligence. These tasks include:</p>
+            <div class="grid">
+                <div class="grid-item">
+                    <div class="icon">🧠</div>
+                    <h4>Reasoning</h4>
+                    <p>Drawing conclusions from available information using logic and inference</p>
+                </div>
+                <div class="grid-item">
+                    <div class="icon">📚</div>
+                    <h4>Learning</h4>
+                    <p>Improving performance through experience and data without explicit programming</p>
+                </div>
+                <div class="grid-item">
+                    <div class="icon">🔍</div>
+                    <h4>Problem Solving</h4>
+                    <p>Finding solutions to complex challenges through search and optimization</p>
+                </div>
+                <div class="grid-item">
+                    <div class="icon">👁️</div>
+                    <h4>Perception</h4>
+                    <p>Interpreting sensory data — images, speech, text — to understand the world</p>
+                </div>
+                <div class="grid-item">
+                    <div class="icon">💬</div>
+                    <h4>Language Understanding</h4>
+                    <p>Processing and generating human language with meaning and context</p>
+                </div>
+                <div class="grid-item">
+                    <div class="icon">⚡</div>
+                    <h4>Decision Making</h4>
+                    <p>Choosing optimal actions based on goals, constraints, and available information</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- History -->
+        <div class="card">
+            <h2>A Brief History of AI</h2>
+            <p>AI has gone through cycles of hype and disillusionment ("AI winters"), but each cycle has built on the previous one, leading us to today's remarkable capabilities.</p>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr><th>Era</th><th>Period</th><th>Key Milestones</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Birth of AI</strong></td><td>1950s</td><td>Turing Test (1950), Dartmouth Conference coins "Artificial Intelligence" (1956), first AI programs</td></tr>
+                        <tr><td><strong>Early Enthusiasm</strong></td><td>1960s</td><td>ELIZA chatbot (1966), General Problem Solver, Perceptron neural networks</td></tr>
+                        <tr><td><strong>First AI Winter</strong></td><td>1970s</td><td>Limitations exposed by Minsky &amp; Papert, Lighthill Report, funding cuts across governments</td></tr>
+                        <tr><td><strong>Expert Systems</strong></td><td>1980s</td><td>Rule-based systems boom: MYCIN (medical diagnosis), R1/XCON (computer configuration), billions invested</td></tr>
+                        <tr><td><strong>Second AI Winter</strong></td><td>Late 1980s-90s</td><td>Expert systems proved brittle and expensive, market collapse, shift to statistical methods</td></tr>
+                        <tr><td><strong>ML Renaissance</strong></td><td>2000s</td><td>Statistical ML rises: SVMs, Random Forests, Netflix Prize, big data explosion</td></tr>
+                        <tr><td><strong>Deep Learning Era</strong></td><td>2012+</td><td>AlexNet wins ImageNet (2012), GPU computing, TensorFlow/PyTorch, AlphaGo (2016)</td></tr>
+                        <tr><td><strong>Generative AI</strong></td><td>2020+</td><td>GPT-3 (2020), DALL-E, ChatGPT (2022), GPT-4 (2023), Stable Diffusion, Claude, Gemini</td></tr>
+                        <tr><td><strong>Agentic AI</strong></td><td>2024+</td><td>Autonomous AI agents, multi-agent orchestration, tool use, self-improving systems</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="takeaway">
+                <h4>Key Insight</h4>
+                <p>Each "AI winter" was caused by overpromising and underdelivering. Today's AI is different because it is powered by massive data, powerful compute (GPUs/TPUs), and proven algorithms (Transformers). Agentic AI builds on ALL previous advances.</p>
+            </div>
+        </div>
+
+        <!-- Types of AI -->
+        <div class="card">
+            <h2>Types of AI</h2>
+            <h3>By Capability Level</h3>
+            <div class="grid">
+                <div class="grid-item" style="border-left: 4px solid #4caf50;">
+                    <h4>Narrow AI (ANI)</h4>
+                    <span class="tag tag-green">Current State</span>
+                    <p>Designed for a specific task. All existing AI falls here, including ChatGPT, self-driving cars, image classifiers, and recommendation engines.</p>
+                    <p><strong>Examples:</strong> Siri, AlphaGo, GPT-4, DALL-E, Tesla Autopilot</p>
+                </div>
+                <div class="grid-item" style="border-left: 4px solid #ff9800;">
+                    <h4>General AI (AGI)</h4>
+                    <span class="tag tag-orange">Future Goal</span>
+                    <p>Human-level intelligence that can transfer learning across any domain. Can reason, plan, learn, and solve novel problems like a human.</p>
+                    <p><strong>Status:</strong> Active research — estimated years to decades away</p>
+                </div>
+                <div class="grid-item" style="border-left: 4px solid #f44336;">
+                    <h4>Super AI (ASI)</h4>
+                    <span class="tag tag-red">Theoretical</span>
+                    <p>Surpasses human intelligence in every dimension — creativity, problem-solving, social intelligence, scientific discovery.</p>
+                    <p><strong>Status:</strong> Purely theoretical, raises existential safety questions</p>
+                </div>
+            </div>
+
+            <h3>By Functionality</h3>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr><th>Type</th><th>Description</th><th>Memory</th><th>Example</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Reactive Machines</strong></td><td>Responds to current input only, no memory</td><td>None</td><td>IBM Deep Blue (chess)</td></tr>
+                        <tr><td><strong>Limited Memory</strong></td><td>Uses recent past data for decisions</td><td>Short-term</td><td>Self-driving cars, ChatGPT</td></tr>
+                        <tr><td><strong>Theory of Mind</strong></td><td>Understands emotions, beliefs, intentions</td><td>Contextual</td><td>Research stage</td></tr>
+                        <tr><td><strong>Self-Aware</strong></td><td>Has consciousness and self-awareness</td><td>Full</td><td>Theoretical only</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- AI vs ML vs DL -->
+        <div class="card">
+            <h2>AI vs Machine Learning vs Deep Learning</h2>
+            <div class="diagram">
+┌─────────────────────────────────────────────────┐
+│              Artificial Intelligence              │
+│                                                   │
+│   ┌───────────────────────────────────────────┐  │
+│   │           Machine Learning                 │  │
+│   │                                            │  │
+│   │   ┌────────────────────────────────────┐  │  │
+│   │   │          Deep Learning              │  │  │
+│   │   │                                     │  │  │
+│   │   │   ┌─────────────────────────────┐  │  │  │
+│   │   │   │      Generative AI           │  │  │  │
+│   │   │   │                              │  │  │  │
+│   │   │   │   ┌──────────────────────┐  │  │  │  │
+│   │   │   │   │    Agentic AI        │  │  │  │  │
+│   │   │   │   └──────────────────────┘  │  │  │  │
+│   │   │   └─────────────────────────────┘  │  │  │
+│   │   └────────────────────────────────────┘  │  │
+│   └───────────────────────────────────────────┘  │
+└─────────────────────────────────────────────────┘
+            </div>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr><th>Layer</th><th>What It Is</th><th>Key Technique</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>AI</strong></td><td>Any technique enabling machines to mimic human intelligence</td><td>Rules, logic, search, ML, DL</td></tr>
+                        <tr><td><strong>ML</strong></td><td>Systems that learn patterns from data</td><td>Regression, classification, clustering</td></tr>
+                        <tr><td><strong>DL</strong></td><td>Neural networks with many layers</td><td>CNNs, RNNs, Transformers</td></tr>
+                        <tr><td><strong>GenAI</strong></td><td>Creates new content (text, images, code)</td><td>LLMs, Diffusion Models, GANs</td></tr>
+                        <tr><td><strong>Agentic AI</strong></td><td>Autonomous systems that plan, reason, and act</td><td>Tool use, memory, multi-agent orchestration</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- AI Paradigms -->
+        <div class="card">
+            <h2>Key AI Paradigms</h2>
+            <div class="grid">
+                <div class="grid-item">
+                    <h4>Symbolic AI (GOFAI)</h4>
+                    <span class="tag tag-blue">Classical</span>
+                    <ul>
+                        <li>Uses explicit rules and logic</li>
+                        <li>Knowledge as symbols and ontologies</li>
+                        <li>Expert systems, logic programming</li>
+                        <li><strong>Pros:</strong> Explainable, precise</li>
+                        <li><strong>Cons:</strong> Brittle, can't learn from data</li>
+                    </ul>
+                </div>
+                <div class="grid-item">
+                    <h4>Statistical / ML-Based AI</h4>
+                    <span class="tag tag-green">Modern</span>
+                    <ul>
+                        <li>Learns patterns from data</li>
+                        <li>Probabilistic reasoning</li>
+                        <li>Neural networks, Bayesian methods</li>
+                        <li><strong>Pros:</strong> Scales with data, handles uncertainty</li>
+                        <li><strong>Cons:</strong> Black box, data hungry</li>
+                    </ul>
+                </div>
+                <div class="grid-item">
+                    <h4>Hybrid / Neuro-Symbolic AI</h4>
+                    <span class="tag tag-purple">Cutting Edge</span>
+                    <ul>
+                        <li>Combines learning + structured reasoning</li>
+                        <li>LLMs + tools + knowledge graphs</li>
+                        <li>This is where <strong>Agentic AI</strong> lives</li>
+                        <li><strong>Pros:</strong> Best of both worlds</li>
+                        <li><strong>Cons:</strong> Complex to build and maintain</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- AI Technology Stack -->
+        <div class="card">
+            <h2>The AI Technology Stack</h2>
+            <div class="diagram">
+┌──────────────────────────────────────────────────┐
+│  APPLICATIONS                                     │
+│  Chatbots, Agents, Recommendation, Automation     │
+├──────────────────────────────────────────────────┤
+│  FRAMEWORKS &amp; TOOLS                              │
+│  LangChain, PyTorch, TensorFlow, HuggingFace     │
+├──────────────────────────────────────────────────┤
+│  MODELS &amp; ALGORITHMS                             │
+│  LLMs, CNNs, Transformers, RL, Decision Trees     │
+├──────────────────────────────────────────────────┤
+│  DATA &amp; COMPUTE                                  │
+│  Datasets, GPUs/TPUs, Cloud (AWS/Azure/GCP)       │
+├──────────────────────────────────────────────────┤
+│  MATHEMATICS                                      │
+│  Linear Algebra, Calculus, Probability, Statistics │
+└──────────────────────────────────────────────────┘
+            </div>
+            <div class="concept-box">
+                <h4>Why This Stack Matters</h4>
+                <p>Every layer builds on the one below it. When you build an AI agent, you're working at the top of this stack — but understanding each layer helps you debug issues, optimize performance, and make better architectural decisions.</p>
+            </div>
+        </div>
+
+        <!-- Connection to Agentic AI -->
+        <div class="card">
+            <h2>Connection to Agentic AI</h2>
+            <p>Understanding AI fundamentals is crucial because Agentic AI doesn't replace these foundations — it builds on ALL of them:</p>
+            <div class="concept-box">
+                <h4>How AI Foundations Power Agents</h4>
+                <ul>
+                    <li><strong>Perception</strong> — Agents use NLP and Computer Vision to understand inputs</li>
+                    <li><strong>Reasoning</strong> — Agents leverage LLMs trained with deep learning for chain-of-thought reasoning</li>
+                    <li><strong>Learning</strong> — Agents improve through reinforcement learning and feedback loops</li>
+                    <li><strong>Planning</strong> — Agents decompose complex tasks using optimization techniques from classical AI</li>
+                    <li><strong>Action</strong> — Agents execute decisions using tool calls and API integrations</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="nav-footer">
+            <a href="../" class="nav-btn secondary">&#8592; Back to Section 01</a>
+            <a href="../02_Machine_Learning_Basics/" class="nav-btn">Next: Machine Learning Basics &#8594;</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prompt Security & Safety - Agentic AI Tutorial</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<div class="hero" style="background: linear-gradient(135deg, #f44336 0%, #e91e63 100%);"><h1>Prompt Security & Safety</h1><p class="subtitle">Injection attacks, jailbreaks, and defensive prompt engineering</p><span class="badge">Section 06 &bull; 05</span></div>
+<div class="breadcrumb"><a href="../../">Home</a> <span class="sep">/</span> <a href="../">Section 06: Prompt Engineering</a> <span class="sep">/</span> <span>Prompt Security & Safety</span></div>
+<div class="container"><div class="card"><h2>Security Threats</h2><div class="grid">
+<div class="grid-item" style="border-top:4px solid #f44336;"><h4>Prompt Injection</h4><p>Malicious instructions hidden in user input that override the system prompt.</p></div>
+<div class="grid-item" style="border-top:4px solid #ff9800;"><h4>Jailbreaking</h4><p>Creative prompting to bypass safety guardrails.</p></div>
+<div class="grid-item" style="border-top:4px solid #9c27b0;"><h4>Data Exfiltration</h4><p>Tricking the model into revealing system prompts or sensitive data.</p></div></div></div>
+<div class="card"><h2>Defenses</h2><div class="concept-box"><h4>Defense-in-Depth for Agents</h4><ul>
+<li>Input sanitization and validation</li>
+<li>Output filtering and monitoring</li>
+<li>Action validation before execution</li>
+<li>Content safety classifiers</li>
+<li>Rate limiting and anomaly detection</li>
+<li>Guardrail frameworks: NeMo Guardrails, Guardrails AI</li></ul></div>
+<div class="warning"><h4>Critical for Agentic AI</h4><p>Agents with tool access are HIGH RISK targets. A prompt injection could cause an agent to execute harmful actions, delete files, or exfiltrate data.</p></div></div><div class="nav-footer"><a href="../04_Output_Formatting/" class="nav-btn secondary">&#8592; Previous: Output Formatting & Structured Output</a><a href="../../Section_07_RAG_and_Fine_Tuning/" class="nav-btn">Next Section &#8594;</a></div></div>
+</body></html>

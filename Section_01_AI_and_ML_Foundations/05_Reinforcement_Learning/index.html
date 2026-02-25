@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reinforcement Learning - Agentic AI Tutorial</title>
+    <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+    <div class="hero" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+        <h1>Reinforcement Learning</h1>
+        <p class="subtitle">The direct ancestor of Agentic AI — learning through interaction with an environment</p>
+        <span class="badge">Section 01 &bull; Concept 05</span>
+    </div>
+    <div class="breadcrumb">
+        <a href="../../">Home</a> <span class="sep">/</span>
+        <a href="../">Section 01: AI &amp; ML Foundations</a> <span class="sep">/</span>
+        <span>Reinforcement Learning</span>
+    </div>
+    <div class="container">
+        <div class="card">
+            <h2>The RL Framework</h2>
+            <p>An agent learns by interacting with an environment. At each step, it observes the state, takes an action, receives a reward, and moves to the next state. The goal: maximize cumulative reward.</p>
+            <div class="diagram">
+                ┌─────────┐    action (a)     ┌─────────────┐
+                │  AGENT  │ ────────────────► │ ENVIRONMENT │
+                │         │                   │             │
+                │ Policy  │ ◄──────────────── │  World,     │
+                │ π(s)→a  │  state(s), reward │  Physics,   │
+                └─────────┘        (r)        │  Rules      │
+                                              └─────────────┘
+            </div>
+            <div class="concept-box">
+                <h4>Why RL is the Foundation of Agentic AI</h4>
+                <p>Modern AI agents follow the exact same loop: <strong>observe</strong> (read context/state) → <strong>decide</strong> (choose action via LLM) → <strong>act</strong> (call tools/APIs) → <strong>receive feedback</strong> (results/errors) → <strong>improve</strong>. RL formalized this loop decades before LLM-based agents existed!</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Core Concepts</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead><tr><th>Concept</th><th>Definition</th><th>Agentic AI Parallel</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>State (s)</strong></td><td>Current situation</td><td>Conversation history + memory + context</td></tr>
+                        <tr><td><strong>Action (a)</strong></td><td>What the agent does</td><td>Tool calls, API requests, text generation</td></tr>
+                        <tr><td><strong>Reward (r)</strong></td><td>Feedback signal</td><td>Task success, user satisfaction</td></tr>
+                        <tr><td><strong>Policy (π)</strong></td><td>Decision strategy</td><td>LLM + system prompt + reasoning</td></tr>
+                        <tr><td><strong>Value V(s)</strong></td><td>Expected future reward from state</td><td>Estimated remaining effort for task</td></tr>
+                        <tr><td><strong>Q(s,a)</strong></td><td>Value of action in state</td><td>Expected outcome of choosing a specific tool</td></tr>
+                        <tr><td><strong>Episode</strong></td><td>Start to terminal state</td><td>Complete task execution</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Exploration vs Exploitation</h2>
+            <div class="grid">
+                <div class="grid-item" style="border-left: 4px solid #2196f3;">
+                    <h4>Exploration</h4>
+                    <p>Try new, unknown actions to potentially discover better strategies. Risk: waste time on bad options.</p>
+                    <p><em>Agent parallel:</em> Trying a different tool or approach for a task</p>
+                </div>
+                <div class="grid-item" style="border-left: 4px solid #4caf50;">
+                    <h4>Exploitation</h4>
+                    <p>Use known good actions to maximize immediate reward. Risk: miss better opportunities.</p>
+                    <p><em>Agent parallel:</em> Using a proven tool/method that worked before</p>
+                </div>
+            </div>
+            <div class="takeaway">
+                <h4>Balance is Key</h4>
+                <p>The epsilon-greedy strategy explores with probability epsilon (e.g., 10%) and exploits with probability 1 - epsilon (90%). Modern agents achieve this through temperature sampling in LLMs — higher temperature = more exploration.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Key Algorithms</h2>
+            <div class="grid">
+                <div class="grid-item" style="border-top: 4px solid #2196f3;">
+                    <h4>Q-Learning</h4>
+                    <span class="tag tag-blue">Value-Based</span>
+                    <p>Learns the value of each state-action pair. The agent picks the action with the highest Q-value.</p>
+                    <p><strong>Bellman Equation:</strong> Q(s,a) = r + gamma * max Q(s',a')</p>
+                    <p>Off-policy: Can learn from others' experience</p>
+                </div>
+                <div class="grid-item" style="border-top: 4px solid #9c27b0;">
+                    <h4>Deep Q-Network (DQN)</h4>
+                    <span class="tag tag-purple">Deep RL</span>
+                    <p>Neural network approximates Q-function. DeepMind used this to master Atari games (2013).</p>
+                    <p><strong>Key innovations:</strong> Experience replay buffer, target network for stability</p>
+                </div>
+                <div class="grid-item" style="border-top: 4px solid #ff9800;">
+                    <h4>PPO (Proximal Policy Optimization)</h4>
+                    <span class="tag tag-orange">Policy-Based</span>
+                    <p>Most popular RL algorithm today. Directly optimizes the policy with stable updates. Used in RLHF for ChatGPT, Claude.</p>
+                    <p><strong>Key property:</strong> Clipped objective prevents too-large policy updates</p>
+                </div>
+                <div class="grid-item" style="border-top: 4px solid #4caf50;">
+                    <h4>Actor-Critic (A2C/A3C)</h4>
+                    <span class="tag tag-green">Hybrid</span>
+                    <p>Combines value and policy methods. Actor chooses actions, Critic evaluates them. Best of both worlds.</p>
+                    <p><strong>Advantage:</strong> Measures how much better an action is vs average</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>RLHF — The Bridge to Modern AI Agents</h2>
+            <p>Reinforcement Learning from Human Feedback is how we align LLMs with human preferences:</p>
+            <div class="diagram">
+Step 1: Pre-train LLM on massive text corpus
+                    ↓
+Step 2: Supervised Fine-Tuning on instruction-response pairs
+                    ↓
+Step 3: Train a Reward Model from human preference comparisons
+                    ↓
+Step 4: Optimize LLM policy using PPO against the Reward Model
+                    ↓
+Result: A helpful, harmless, and honest AI assistant
+            </div>
+            <div class="concept-box">
+                <h4>Why RLHF Matters for Agentic AI</h4>
+                <p>RLHF is what makes modern LLMs (GPT-4, Claude, Gemini) good at following instructions, using tools, and behaving safely. Without RLHF, the raw language model would just predict the next token — RLHF turns it into an agent that can follow goals.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Code Example: Simple Q-Learning</h2>
+            <div class="code-block">
+                <span class="lang-tag">Python</span>
+<span class="keyword">import</span> numpy <span class="keyword">as</span> np
+
+<span class="comment"># Simple grid world Q-Learning</span>
+n_states = <span class="number">16</span>  <span class="comment"># 4x4 grid</span>
+n_actions = <span class="number">4</span>   <span class="comment"># up, down, left, right</span>
+Q = np.zeros((n_states, n_actions))
+
+<span class="comment"># Hyperparameters</span>
+alpha = <span class="number">0.1</span>    <span class="comment"># learning rate</span>
+gamma = <span class="number">0.99</span>   <span class="comment"># discount factor</span>
+epsilon = <span class="number">0.1</span>  <span class="comment"># exploration rate</span>
+
+<span class="keyword">def</span> <span class="function">choose_action</span>(state):
+    <span class="keyword">if</span> np.random.random() < epsilon:
+        <span class="keyword">return</span> np.random.randint(n_actions)  <span class="comment"># Explore</span>
+    <span class="keyword">return</span> np.argmax(Q[state])  <span class="comment"># Exploit</span>
+
+<span class="keyword">def</span> <span class="function">update_q</span>(state, action, reward, next_state):
+    best_next = np.max(Q[next_state])
+    Q[state, action] += alpha * (
+        reward + gamma * best_next - Q[state, action]
+    )
+
+<span class="comment"># Training loop (conceptual)</span>
+<span class="keyword">for</span> episode <span class="keyword">in</span> range(<span class="number">1000</span>):
+    state = <span class="number">0</span>  <span class="comment"># start state</span>
+    done = <span class="keyword">False</span>
+    <span class="keyword">while not</span> done:
+        action = choose_action(state)
+        <span class="comment"># next_state, reward, done = env.step(action)</span>
+        <span class="comment"># update_q(state, action, reward, next_state)</span>
+        <span class="comment"># state = next_state</span>
+        <span class="keyword">break</span>
+            </div>
+        </div>
+
+        <div class="nav-footer">
+            <a href="../04_Unsupervised_Learning/" class="nav-btn secondary">&#8592; Previous: Unsupervised Learning</a>
+            <a href="../06_Classical_ML_Algorithms/" class="nav-btn">Next: Classical ML Algorithms &#8594;</a>
+        </div>
+    </div>
+</body>
+</html>

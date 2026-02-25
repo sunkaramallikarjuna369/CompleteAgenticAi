@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Vision - Agentic AI Tutorial</title>
+    <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+    <div class="hero" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+        <h1>Computer Vision</h1>
+        <p class="subtitle">Teaching machines to see and understand the visual world</p>
+        <span class="badge">Section 02 &bull; Concept 02</span>
+    </div>
+    <div class="breadcrumb">
+        <a href="../../">Home</a> <span class="sep">/</span>
+        <a href="../">Section 02: Key Technologies</a> <span class="sep">/</span>
+        <span>Computer Vision</span>
+    </div>
+    <div class="container">
+        <div class="card">
+            <h2>Core Computer Vision Tasks</h2>
+            <div class="grid">
+                <div class="grid-item"><div class="icon">🖼️</div><h4>Image Classification</h4><p>Assign a label to an entire image. "This is a cat." Foundation of CV.</p></div>
+                <div class="grid-item"><div class="icon">🎯</div><h4>Object Detection</h4><p>Locate AND classify multiple objects. Draw bounding boxes. Used in self-driving cars, security.</p></div>
+                <div class="grid-item"><div class="icon">🎨</div><h4>Segmentation</h4><p>Classify every pixel. Semantic (class per pixel) or Instance (separate objects). Medical imaging, robotics.</p></div>
+                <div class="grid-item"><div class="icon">🔤</div><h4>OCR</h4><p>Extract text from images and documents. Powers document processing agents.</p></div>
+                <div class="grid-item"><div class="icon">🎭</div><h4>Face Recognition</h4><p>Identify or verify people from facial features. Security, authentication systems.</p></div>
+                <div class="grid-item"><div class="icon">🖌️</div><h4>Image Generation</h4><p>Create new images from text descriptions. DALL-E, Stable Diffusion, Midjourney.</p></div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Key Architectures</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead><tr><th>Architecture</th><th>Year</th><th>Key Innovation</th><th>Impact</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>LeNet</strong></td><td>1998</td><td>First practical CNN</td><td>Handwritten digit recognition</td></tr>
+                        <tr><td><strong>AlexNet</strong></td><td>2012</td><td>Deep CNN + GPU training</td><td>Started deep learning revolution</td></tr>
+                        <tr><td><strong>VGG</strong></td><td>2014</td><td>Very deep with small 3x3 filters</td><td>Showed depth matters</td></tr>
+                        <tr><td><strong>ResNet</strong></td><td>2015</td><td>Skip connections (residual learning)</td><td>Enabled 150+ layer networks</td></tr>
+                        <tr><td><strong>YOLO</strong></td><td>2016</td><td>Real-time object detection</td><td>Single-shot detection at 45+ FPS</td></tr>
+                        <tr><td><strong>EfficientNet</strong></td><td>2019</td><td>Compound scaling</td><td>Optimal accuracy/efficiency tradeoff</td></tr>
+                        <tr><td><strong>Vision Transformer</strong></td><td>2020</td><td>Transformers for images</td><td>Matched CNNs without convolutions</td></tr>
+                        <tr><td><strong>CLIP</strong></td><td>2021</td><td>Text-image alignment</td><td>Zero-shot image classification via text</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Multimodal AI — Vision + Language</h2>
+            <p>The convergence of CV and NLP is creating multimodal models that can both see and speak:</p>
+            <div class="grid">
+                <div class="grid-item" style="border-left: 4px solid #2196f3;">
+                    <h4>CLIP (OpenAI)</h4>
+                    <p>Maps images and text to the same embedding space. Enables zero-shot classification: describe what to look for in text.</p>
+                </div>
+                <div class="grid-item" style="border-left: 4px solid #4caf50;">
+                    <h4>GPT-4V / GPT-4o</h4>
+                    <p>Can understand images as input, describe them, answer questions about them, and reason over visual content.</p>
+                </div>
+                <div class="grid-item" style="border-left: 4px solid #ff9800;">
+                    <h4>LLaVA</h4>
+                    <p>Open-source large multimodal model. Combines vision encoder with LLM for visual understanding.</p>
+                </div>
+            </div>
+            <div class="takeaway">
+                <h4>For Agentic AI</h4>
+                <p>Multimodal agents can: read screenshots and web pages, process documents with images, understand diagrams and charts, navigate visual interfaces, and perform visual quality inspection. This is critical for truly autonomous agents!</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Code Example: Image Classification</h2>
+            <div class="code-block">
+                <span class="lang-tag">Python</span>
+<span class="keyword">from</span> transformers <span class="keyword">import</span> pipeline
+
+<span class="comment"># Zero-shot image classification</span>
+classifier = pipeline(
+    <span class="string">"zero-shot-image-classification"</span>,
+    model=<span class="string">"openai/clip-vit-base-patch32"</span>
+)
+
+result = classifier(
+    <span class="string">"path/to/image.jpg"</span>,
+    candidate_labels=[<span class="string">"cat"</span>, <span class="string">"dog"</span>, <span class="string">"bird"</span>, <span class="string">"car"</span>]
+)
+<span class="function">print</span>(result)
+<span class="comment"># [{'label': 'cat', 'score': 0.95}, ...]</span>
+            </div>
+        </div>
+
+        <div class="nav-footer">
+            <a href="../01_Natural_Language_Processing/" class="nav-btn secondary">&#8592; Previous: NLP</a>
+            <a href="../03_Speech_Recognition/" class="nav-btn">Next: Speech Recognition &#8594;</a>
+        </div>
+    </div>
+</body>
+</html>

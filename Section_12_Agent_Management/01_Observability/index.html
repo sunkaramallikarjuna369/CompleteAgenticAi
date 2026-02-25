@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agent Observability - Agentic AI Tutorial</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<div class="hero" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"><h1>Agent Observability</h1><p class="subtitle">Logging, tracing, and monitoring AI agents in production</p><span class="badge">Section 12 &bull; 01</span></div>
+<div class="breadcrumb"><a href="../../">Home</a> <span class="sep">/</span> <a href="../">Section 12: Agent Management</a> <span class="sep">/</span> <span>Agent Observability</span></div>
+<div class="container"><div class="card"><h2>Why Observability?</h2><div class="warning"><h4>Non-Negotiable</h4><p>Agents are non-deterministic. Without comprehensive logging, debugging is nearly impossible. Log EVERYTHING.</p></div></div>
+<div class="card"><h2>What to Log</h2><div class="concept-box"><ul>
+<li>Every LLM call: input, output, tokens, latency, cost</li>
+<li>Tool calls: name, arguments, results, errors</li>
+<li>Agent decisions: which tool chosen and why</li>
+<li>Memory operations: reads and writes</li>
+<li>User interactions and feedback</li></ul></div></div>
+<div class="card"><h2>Tools</h2><div class="grid">
+<div class="grid-item"><h4>LangSmith</h4><p>LangChain's platform. Best integration with LangChain/LangGraph.</p></div>
+<div class="grid-item"><h4>Langfuse</h4><p>Open-source. Self-hostable. Growing community.</p></div>
+<div class="grid-item"><h4>Helicone</h4><p>LLM proxy with automatic logging and analytics.</p></div>
+<div class="grid-item"><h4>Portkey</h4><p>AI gateway with observability, caching, and routing.</p></div></div></div><div class="nav-footer"><a href="../" class="nav-btn secondary">&#8592; Back to Section</a><a href="../02_Debugging_Agents/" class="nav-btn">Next: Debugging Agents &#8594;</a></div></div>
+</body></html>

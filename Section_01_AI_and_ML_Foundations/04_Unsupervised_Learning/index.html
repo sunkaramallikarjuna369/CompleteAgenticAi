@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unsupervised Learning - Agentic AI Tutorial</title>
+    <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+    <div class="hero" style="background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);">
+        <h1>Unsupervised Learning</h1>
+        <p class="subtitle">Discovering hidden patterns in data without labeled examples</p>
+        <span class="badge">Section 01 &bull; Concept 04</span>
+    </div>
+    <div class="breadcrumb">
+        <a href="../../">Home</a> <span class="sep">/</span>
+        <a href="../">Section 01: AI &amp; ML Foundations</a> <span class="sep">/</span>
+        <span>Unsupervised Learning</span>
+    </div>
+    <div class="container">
+        <div class="card">
+            <h2>What is Unsupervised Learning?</h2>
+            <p>Unlike supervised learning, there are <strong>no labels</strong>. The algorithm explores the data and discovers structure, patterns, and relationships on its own.</p>
+            <div class="concept-box">
+                <h4>Analogy</h4>
+                <p>Imagine sorting a box of mixed coins from different countries. Nobody tells you which coins are which — you group them by size, color, and markings. That's unsupervised learning: finding structure without guidance.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Clustering Algorithms</h2>
+            <div class="grid">
+                <div class="grid-item" style="border-top: 4px solid #2196f3;">
+                    <h4>K-Means</h4>
+                    <span class="tag tag-blue">Most Popular</span>
+                    <p>Partitions data into K clusters by minimizing distance to cluster centers (centroids).</p>
+                    <ul>
+                        <li>Fast and scalable</li>
+                        <li>Must choose K in advance</li>
+                        <li>Assumes spherical clusters</li>
+                        <li>Use Elbow Method to find optimal K</li>
+                    </ul>
+                </div>
+                <div class="grid-item" style="border-top: 4px solid #9c27b0;">
+                    <h4>DBSCAN</h4>
+                    <span class="tag tag-purple">Density-Based</span>
+                    <p>Groups points in dense regions. Points in sparse regions are labeled as outliers.</p>
+                    <ul>
+                        <li>No need to specify number of clusters</li>
+                        <li>Handles arbitrary shapes</li>
+                        <li>Built-in outlier detection</li>
+                        <li>Struggles with varying density</li>
+                    </ul>
+                </div>
+                <div class="grid-item" style="border-top: 4px solid #ff9800;">
+                    <h4>Hierarchical</h4>
+                    <span class="tag tag-orange">Tree-Based</span>
+                    <p>Builds a dendrogram (tree) of nested clusters from individual points up to one cluster.</p>
+                    <ul>
+                        <li>Visual and interpretable</li>
+                        <li>No need to pre-specify K</li>
+                        <li>Agglomerative (bottom-up) most common</li>
+                        <li>Slow for large datasets: O(n^3)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Dimensionality Reduction</h2>
+            <p>Reduces the number of features while preserving the most important information. Essential for visualization and preprocessing.</p>
+            <div class="table-wrapper">
+                <table>
+                    <thead><tr><th>Method</th><th>Type</th><th>Best For</th><th>Key Property</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>PCA</strong></td><td>Linear</td><td>General dimensionality reduction</td><td>Preserves global variance</td></tr>
+                        <tr><td><strong>t-SNE</strong></td><td>Non-linear</td><td>2D/3D visualization</td><td>Preserves local neighborhoods</td></tr>
+                        <tr><td><strong>UMAP</strong></td><td>Non-linear</td><td>Visualization + preprocessing</td><td>Preserves both local and global structure</td></tr>
+                        <tr><td><strong>Autoencoders</strong></td><td>Neural Network</td><td>Complex non-linear reduction</td><td>Learns compressed representations</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="takeaway">
+                <h4>For Agentic AI</h4>
+                <p>Vector embeddings — the backbone of RAG systems and semantic search — are essentially dimensionality reduction. Text is compressed from thousands of tokens into dense vectors where similar meanings are close together. This is how agents "understand" and retrieve relevant knowledge.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Anomaly Detection</h2>
+            <div class="grid">
+                <div class="grid-item">
+                    <h4>Isolation Forest</h4>
+                    <p>Randomly partitions data. Anomalies are isolated in fewer steps than normal points. Fast and effective.</p>
+                </div>
+                <div class="grid-item">
+                    <h4>One-Class SVM</h4>
+                    <p>Learns a boundary around "normal" data. Points outside the boundary are flagged as anomalies.</p>
+                </div>
+                <div class="grid-item">
+                    <h4>Autoencoders</h4>
+                    <p>Neural network trained to reconstruct normal data. Anomalies produce high reconstruction error because the model hasn't learned their patterns.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Code Example: K-Means Clustering</h2>
+            <div class="code-block">
+                <span class="lang-tag">Python</span>
+<span class="keyword">from</span> sklearn.cluster <span class="keyword">import</span> KMeans
+<span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> make_blobs
+<span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt
+
+<span class="comment"># Generate sample data</span>
+X, _ = make_blobs(n_samples=<span class="number">300</span>, centers=<span class="number">4</span>, random_state=<span class="number">42</span>)
+
+<span class="comment"># Fit K-Means</span>
+kmeans = KMeans(n_clusters=<span class="number">4</span>, random_state=<span class="number">42</span>)
+labels = kmeans.fit_predict(X)
+
+<span class="comment"># Visualize</span>
+plt.scatter(X[:, <span class="number">0</span>], X[:, <span class="number">1</span>], c=labels, cmap=<span class="string">'viridis'</span>)
+plt.scatter(kmeans.cluster_centers_[:, <span class="number">0</span>],
+            kmeans.cluster_centers_[:, <span class="number">1</span>],
+            marker=<span class="string">'X'</span>, s=<span class="number">200</span>, c=<span class="string">'red'</span>)
+plt.title(<span class="string">'K-Means Clustering'</span>)
+plt.show()
+            </div>
+        </div>
+
+        <div class="nav-footer">
+            <a href="../03_Supervised_Learning/" class="nav-btn secondary">&#8592; Previous: Supervised Learning</a>
+            <a href="../05_Reinforcement_Learning/" class="nav-btn">Next: Reinforcement Learning &#8594;</a>
+        </div>
+    </div>
+</body>
+</html>

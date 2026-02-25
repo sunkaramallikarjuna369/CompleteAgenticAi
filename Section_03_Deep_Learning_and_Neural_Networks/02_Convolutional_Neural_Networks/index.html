@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convolutional Neural Networks - Agentic AI Tutorial</title>
+    <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+    <div class="hero" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+        <h1>Convolutional Neural Networks</h1>
+        <p class="subtitle">The architecture that taught machines to see — from pixels to understanding</p>
+        <span class="badge">Section 03 &bull; Concept 02</span>
+    </div>
+    <div class="breadcrumb">
+        <a href="../../">Home</a> <span class="sep">/</span>
+        <a href="../">Section 03: Deep Learning</a> <span class="sep">/</span>
+        <span>CNNs</span>
+    </div>
+    <div class="container">
+        <div class="card">
+            <h2>How Convolution Works</h2>
+            <p>A small filter (kernel) slides across the input image, computing a dot product at each position. The result is a <strong>feature map</strong> that highlights where the pattern was detected.</p>
+            <div class="diagram">
+Input (6x6)            Kernel (3x3)       Feature Map (4x4)
+┌──────────────┐      ┌─────────┐        ┌──────────┐
+│ 0 1 1 0 0 1 │      │ 1 0 1   │        │ 4 3 4 1  │
+│ 1 0 0 1 1 0 │  *   │ 0 1 0   │   =    │ 2 4 3 3  │
+│ 0 1 1 0 0 1 │      │ 1 0 1   │        │ 4 3 4 1  │
+│ 1 0 0 1 1 0 │      └─────────┘        │ 2 4 3 3  │
+│ 0 1 1 0 0 1 │                          └──────────┘
+│ 1 0 0 1 1 0 │
+└──────────────┘
+The kernel detects a specific pattern (e.g., vertical edge)
+Multiple kernels detect different features → Multiple feature maps
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>CNN Architecture</h2>
+            <div class="diagram">
+Input Image → [Conv + ReLU + Pool] → [Conv + ReLU + Pool] → Flatten → FC → Output
+   (3x224x224)    (32 filters)         (64 filters)        (vector)   (classes)
+
+Feature Hierarchy:
+  Layer 1: Edges, gradients
+  Layer 2: Textures, corners
+  Layer 3: Object parts (eyes, wheels)
+  Layer 4: Complete objects (faces, cars)
+            </div>
+            <div class="grid">
+                <div class="grid-item">
+                    <h4>Convolutional Layer</h4>
+                    <p>Applies learned filters to detect features. Each filter produces one feature map. Parameters: kernel size, number of filters, stride, padding.</p>
+                </div>
+                <div class="grid-item">
+                    <h4>Pooling Layer</h4>
+                    <p>Reduces spatial dimensions. <strong>Max Pooling</strong> takes the maximum in each region. Provides translation invariance and reduces computation.</p>
+                </div>
+                <div class="grid-item">
+                    <h4>Fully Connected Layer</h4>
+                    <p>Standard neural network layers at the end. Combines all features for final classification decision.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Landmark CNN Architectures</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead><tr><th>Model</th><th>Year</th><th>Key Innovation</th><th>Why It Matters</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>AlexNet</strong></td><td>2012</td><td>Deep CNN + GPU training</td><td>Started the deep learning revolution</td></tr>
+                        <tr><td><strong>VGG</strong></td><td>2014</td><td>Uniform 3x3 filters, very deep</td><td>Showed depth improves performance</td></tr>
+                        <tr><td><strong>ResNet</strong></td><td>2015</td><td>Skip connections</td><td>Enabled 150+ layer networks. Most influential!</td></tr>
+                        <tr><td><strong>EfficientNet</strong></td><td>2019</td><td>Compound scaling</td><td>Best accuracy/efficiency tradeoff</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="concept-box">
+                <h4>ResNet's Skip Connections — The Most Important Innovation</h4>
+                <p>ResNet introduced <strong>residual connections</strong> that let gradients flow directly through the network. This same idea is used in EVERY modern Transformer (GPT, BERT, Claude). Understanding ResNet helps you understand why Transformers work!</p>
+                <div class="diagram">
+x ──→ Conv ──→ ReLU ──→ Conv ──→ (+) ──→ ReLU ──→ output
+|                                  ↑
+└────────── skip connection ───────┘
+
+Output = F(x) + x  (learn the RESIDUAL, not the full mapping)
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Code Example: CNN with PyTorch</h2>
+            <div class="code-block">
+                <span class="lang-tag">Python</span>
+<span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn
+
+<span class="keyword">class</span> <span class="function">SimpleCNN</span>(nn.Module):
+    <span class="keyword">def</span> <span class="function">__init__</span>(self):
+        <span class="keyword">super</span>().__init__()
+        self.features = nn.Sequential(
+            nn.Conv2d(<span class="number">3</span>, <span class="number">32</span>, kernel_size=<span class="number">3</span>, padding=<span class="number">1</span>),
+            nn.ReLU(),
+            nn.MaxPool2d(<span class="number">2</span>),
+            nn.Conv2d(<span class="number">32</span>, <span class="number">64</span>, kernel_size=<span class="number">3</span>, padding=<span class="number">1</span>),
+            nn.ReLU(),
+            nn.MaxPool2d(<span class="number">2</span>),
+        )
+        self.classifier = nn.Sequential(
+            nn.Flatten(),
+            nn.Linear(<span class="number">64</span> * <span class="number">56</span> * <span class="number">56</span>, <span class="number">512</span>),
+            nn.ReLU(),
+            nn.Dropout(<span class="number">0.5</span>),
+            nn.Linear(<span class="number">512</span>, <span class="number">10</span>),
+        )
+    
+    <span class="keyword">def</span> <span class="function">forward</span>(self, x):
+        x = self.features(x)
+        <span class="keyword">return</span> self.classifier(x)
+            </div>
+        </div>
+
+        <div class="nav-footer">
+            <a href="../01_Neural_Network_Fundamentals/" class="nav-btn secondary">&#8592; Previous: NN Fundamentals</a>
+            <a href="../03_Recurrent_Neural_Networks/" class="nav-btn">Next: RNNs &#8594;</a>
+        </div>
+    </div>
+</body>
+</html>

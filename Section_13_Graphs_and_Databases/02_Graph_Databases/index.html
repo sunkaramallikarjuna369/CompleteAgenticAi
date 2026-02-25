@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Graph Databases - Agentic AI Tutorial</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<div class="hero" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"><h1>Graph Databases</h1><p class="subtitle">Neo4j, Amazon Neptune, and graph query languages</p><span class="badge">Section 13 &bull; 02</span></div>
+<div class="breadcrumb"><a href="../../">Home</a> <span class="sep">/</span> <a href="../">Section 13: Graphs & Databases</a> <span class="sep">/</span> <span>Graph Databases</span></div>
+<div class="container"><div class="card"><h2>Graph Databases</h2><p>Databases optimized for <strong>graph-structured data</strong>. Native graph traversal is orders of magnitude faster than SQL JOINs for connected data.</p></div>
+<div class="card"><h2>Key Options</h2><div class="table-wrapper"><table><thead><tr><th>Database</th><th>Query Language</th><th>Best For</th></tr></thead><tbody>
+<tr><td><strong>Neo4j</strong></td><td>Cypher</td><td>Most popular, general purpose</td></tr>
+<tr><td><strong>Amazon Neptune</strong></td><td>Gremlin/SPARQL</td><td>AWS ecosystem</td></tr>
+<tr><td><strong>ArangoDB</strong></td><td>AQL</td><td>Multi-model (graph+doc+KV)</td></tr>
+<tr><td><strong>TigerGraph</strong></td><td>GSQL</td><td>Enterprise analytics</td></tr></tbody></table></div></div>
+<div class="card"><h2>Cypher Example</h2><div class="code-block"><span class="lang-tag">Cypher</span>
+// Find friends of friends who work at the same company
+MATCH (me:Person {name: "Alice"})-[:FRIENDS]->(friend)-[:FRIENDS]->(fof)
+WHERE (fof)-[:WORKS_AT]->(:Company {name: "TechCorp"})
+RETURN DISTINCT fof.name</div>
+<div class="takeaway"><h4>For Agentic AI</h4><p>Graph databases power knowledge graph agents. Multi-hop reasoning (finding connections 2-3 levels deep) is natural in graph databases but very expensive in relational databases.</p></div></div><div class="nav-footer"><a href="../01_Knowledge_Graphs/" class="nav-btn secondary">&#8592; Previous: Knowledge Graphs</a><a href="../03_Graph_RAG/" class="nav-btn">Next: GraphRAG &#8594;</a></div></div>
+</body></html>
